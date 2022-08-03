@@ -11,8 +11,9 @@ html { box-sizing: border-box; }
 /* grid + flexbox */
 .grid {
     display: grid;
+    column-gap: 30px;
     grid-template-columns: 3fr 2fr;
-    grid-template-rows: auto auto auto 100px;
+    grid-template-rows: auto 80px auto 100px;
     grid-template-areas: 
     "hlavicka hlavicka"
     "krizovatka ovladani-nadpis"
@@ -39,4 +40,13 @@ html { box-sizing: border-box; }
 
 .paticka{
     grid-area: paticka;
+}
+/* ------------------------------------- */
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.krizovatka-grafika {
+    width: 100%;
 }
