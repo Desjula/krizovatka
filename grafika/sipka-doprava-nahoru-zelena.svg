@@ -24,7 +24,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.979899"
-     inkscape:cx="130.12616"
+     inkscape:cx="123.56017"
      inkscape:cy="136.74714"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -43,7 +43,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -51,41 +51,39 @@
      inkscape:label="Vrstva 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <g
-       id="g921"
-       transform="matrix(0,-1.1811024,1.1811024,0,-150.93751,224.37501)">
-      <circle
-         style="fill:#000000;stroke-width:2;stroke-dashoffset:34.7717"
-         id="path912"
-         cx="183.62083"
-         cy="134.14375"
-         r="6.3499999" />
-      <rect
-         style="fill:#00bc23;fill-opacity:1;stroke-width:1.10724;stroke-dashoffset:34.7717"
-         id="rect914"
-         width="7.3752599"
-         height="1.2567707"
-         x="178.51363"
-         y="133.61978"
-         ry="0" />
-      <path
-         sodipodi:type="star"
-         style="fill:#00bc23;fill-opacity:1;stroke-width:2;stroke-dashoffset:34.7717"
-         id="path916"
-         sodipodi:sides="3"
-         sodipodi:cx="199.53008"
-         sodipodi:cy="140.3165"
-         sodipodi:r1="4.3525767"
-         sodipodi:r2="2.1762884"
-         sodipodi:arg1="2.0632821"
-         sodipodi:arg2="3.1104796"
-         inkscape:flatsided="true"
-         inkscape:rounded="0.04"
-         inkscape:randomized="0"
-         inkscape:transform-center-x="-1.0283343"
-         inkscape:transform-center-y="-0.0010882817"
-         transform="matrix(0.94542751,0.02992385,-0.02992385,0.94542751,0.31370392,-4.3908005)"
-         d="m 197.4721,144.15182 c -0.26572,-0.14259 -0.49086,-7.37641 -0.23452,-7.53524 0.25634,-0.15883 6.63358,3.26311 6.64297,3.56452 0.009,0.30141 -6.14273,4.1133 -6.40845,3.97072 z" />
-    </g>
+    <circle
+       style="fill:#1a1a1a;stroke-width:2.3622;stroke-dashoffset:34.7717"
+       id="path912"
+       cx="-7.5000019"
+       cy="7.4999986"
+       r="7.5"
+       transform="rotate(-90)" />
+    <rect
+       style="fill:#00bc23;fill-opacity:1;stroke-width:1.30776;stroke-dashoffset:34.7717"
+       id="rect914"
+       width="8.7109375"
+       height="1.4843749"
+       x="-13.532138"
+       y="6.8811345"
+       ry="0"
+       transform="rotate(-90)" />
+    <path
+       sodipodi:type="star"
+       style="fill:#00bc23;fill-opacity:1;stroke-width:2;stroke-dashoffset:34.7717"
+       id="path916"
+       sodipodi:sides="3"
+       sodipodi:cx="199.53008"
+       sodipodi:cy="140.3165"
+       sodipodi:r1="4.3525767"
+       sodipodi:r2="2.1762884"
+       sodipodi:arg1="2.0632821"
+       sodipodi:arg2="3.1104796"
+       inkscape:flatsided="true"
+       inkscape:rounded="0.04"
+       inkscape:randomized="0"
+       inkscape:transform-center-x="-1.0283343"
+       inkscape:transform-center-y="-0.0010882817"
+       transform="matrix(0.03534313,-1.1166467,1.1166467,0.03534313,-156.1235,224.00449)"
+       d="m 197.4721,144.15182 c -0.26572,-0.14259 -0.49086,-7.37641 -0.23452,-7.53524 0.25634,-0.15883 6.63358,3.26311 6.64297,3.56452 0.009,0.30141 -6.14273,4.1133 -6.40845,3.97072 z" />
   </g>
 </svg>
