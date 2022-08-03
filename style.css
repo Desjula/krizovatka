@@ -6,5 +6,47 @@ html { box-sizing: border-box; }
     width: 200px;
     height: 200px;
     background-color: black;
-    margin-bottom: 20px;
+}
+
+/* grid + flexbox */
+.grid {
+    display: grid;
+    column-gap: 30px;
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: auto 80px auto 100px;
+    grid-template-areas: 
+    "hlavicka hlavicka"
+    "krizovatka ovladani-nadpis"
+    "krizovatka ovladani"
+    "paticka paticka";
+}
+
+.hlavicka {
+    grid-area: hlavicka;
+    display: flex;
+}
+
+.ovladani-nadpis {
+    grid-area: ovladani-nadpis;
+}
+
+.krizovatka {
+    grid-area: krizovatka;
+}
+
+.ovladani {
+    grid-area: ovladani;
+}
+
+.paticka{
+    grid-area: paticka;
+}
+/* ------------------------------------- */
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.krizovatka-grafika {
+    width: 100%;
 }
