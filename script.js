@@ -29,7 +29,7 @@ client.connect({
 let svetlo = document.querySelector(".svetlo");
 let pocetTiku = 0
 let semafor
-let kZelene
+let chodci1
 let kCervene
 
 let stop = document.querySelector(".stop");
@@ -37,16 +37,16 @@ stop.addEventListener("click", function(){
     clearInterval(semafor);
 })
 
-
-let KZelene = document.querySelector(".KZelene");
-KZelene.addEventListener("click", function(){
-    zmenaSemaforuNaZelenou("zelena",svetlo);
+/*
+let chodci1 = document.querySelector(".chodci1");
+chodci1.addEventListener("click", function(){
+    zmenSemafor("zelena",svetlo);
 })
 
 let KCervene = document.querySelector(".KCervene");
 KCervene.addEventListener("click", function(){
     zmenSemafor("cervena",svetlo)
-})
+})*/
 
 function zmenSemafor(kCemu,cisloSemaforu) {
     let barvy = [] 
@@ -70,7 +70,13 @@ function zmenSemafor(kCemu,cisloSemaforu) {
 }
 
 function zmenaSemaforuNaZelenou () {
-    message = new Paho.MQTT.Message("R00");
+    message = new Paho.MQTT.Message("W00");
+    message.destinationName = "/crossing/semaphore/2";
+    client.send(message);
+}
+
+function zmenaSemaforuNaCervenou () {
+    message = new Paho.MQTT.Message("D00");
     message.destinationName = "/crossing/semaphore/2";
     client.send(message);
 }
