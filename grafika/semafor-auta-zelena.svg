@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="15mm"
+   height="15mm"
+   viewBox="0 0 15 15"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0.2 (e86c870879, 2021-01-15)"
+   sodipodi:docname="semafor-auta-zelena.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="142.86054"
+     inkscape:cy="79.537162"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="true"
+     inkscape:object-paths="true"
+     inkscape:snap-global="true"
+     inkscape:snap-intersection-paths="true"
+     inkscape:snap-bbox-midpoints="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:snap-nodes="false"
+     inkscape:snap-object-midpoints="true" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="pozadí"
+     style="display:inline" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Krizovatka"
+     style="display:inline" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer6"
+     inkscape:label="přechody" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="linie silnice" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="Koleje"
+     style="display:inline" />
+  <g
+     inkscape:label="šipky"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#1a1a1a;fill-opacity:1;stroke:#1a1a1a;stroke-width:1.59414;stroke-dashoffset:34.7717;stroke-opacity:1"
+       id="rect1234-7-8"
+       width="13.452719"
+       height="13.361389"
+       x="0.7970711"
+       y="0.7970705"
+       ry="2.2646422" />
+    <path
+       style="fill:#ff160f;fill-opacity:1;stroke:none;stroke-width:2.03813;stroke-dashoffset:34.7717;stroke-opacity:1"
+       id="path1308-1-5"
+       sodipodi:type="arc"
+       sodipodi:cx="7.5234237"
+       sodipodi:cy="7.4777608"
+       sodipodi:rx="5.417233"
+       sodipodi:ry="5.5458093"
+       sodipodi:start="0"
+       sodipodi:end="0.039117689"
+       sodipodi:arc-type="slice"
+       d="m 12.940657,7.4777608 a 5.417233,5.5458093 0 0 1 -0.0041,0.2168839 L 7.5234237,7.4777608 Z" />
+    <ellipse
+       style="fill:#00bc23;fill-opacity:1;stroke:none;stroke-width:2.04501;stroke-dashoffset:34.7717;stroke-opacity:1"
+       id="path1308-1-8"
+       cx="7.5234237"
+       cy="7.4777608"
+       rx="5.744638"
+       ry="5.2651763" />
+  </g>
+</svg>
