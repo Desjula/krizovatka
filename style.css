@@ -13,7 +13,7 @@ html { box-sizing: border-box; }
     display: grid;
     column-gap: 30px;
     grid-template-columns: 3fr 2fr;
-    grid-template-rows: auto 80px auto 100px;
+    grid-template-rows: auto 70px auto 100px;
     grid-template-areas: 
     "hlavicka prazdno"
     "krizovatka ovladani-nadpis"
@@ -52,6 +52,10 @@ body {
     color: whitesmoke;
     background-color: rgb(41, 83, 114);
     margin: 30px 50px 0px 50px;
+}
+
+.ovladani-nadpis > h2{
+    margin-top: 8px;
 }
 
 .krizovatka-grafika {
