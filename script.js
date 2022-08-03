@@ -12,7 +12,6 @@ function onConnect() {
 }
 
 function onMessageArrived(message) {
-
     console.log(message.destinationName);
     console.log(message.payloadString);
 }
@@ -23,6 +22,8 @@ client.connect({
     password: "P@ssW0rd!",
     useSSL: true
 });
+
+//////////////
 
 
 let svetlo = document.querySelector(".svetlo");
@@ -39,7 +40,7 @@ stop.addEventListener("click", function(){
 
 let KZelene = document.querySelector(".KZelene");
 KZelene.addEventListener("click", function(){
-    zmenSemafor("zelena",svetlo);
+    zmenaSemaforuNaZelenou("zelena",svetlo);
 })
 
 let KCervene = document.querySelector(".KCervene");
@@ -66,4 +67,10 @@ function zmenSemafor(kCemu,cisloSemaforu) {
         cisloSemaforu.style.backgroundColor = barvy[pocetTiku]
         pocetTiku += 1
     }
+}
+
+function zmenaSemaforuNaZelenou () {
+    message = new Paho.MQTT.Message("R00");
+    message.destinationName = "/crossing/semaphore/2";
+    client.send(message);
 }
