@@ -36,6 +36,7 @@ html { box-sizing: border-box; }
 
 .krizovatka {
     grid-area: krizovatka;
+    position: relative;
 }
 
 .ovladani {
@@ -46,7 +47,13 @@ html { box-sizing: border-box; }
     grid-area: paticka;
 }
 /* ------------------------------------- */
+/* pozicovani semaforu */
+img:not(.krizovatka-grafika, .logo) {
+    position: absolute;
+}
 
+
+/* ------------------------------------- */
 body {
     font-family: 'Montserrat', sans-serif;
     color: whitesmoke;
