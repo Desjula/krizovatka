@@ -15,7 +15,7 @@ html { box-sizing: border-box; }
     grid-template-columns: 3fr 2fr;
     grid-template-rows: auto 80px auto 100px;
     grid-template-areas: 
-    "hlavicka hlavicka"
+    "hlavicka prazdno"
     "krizovatka ovladani-nadpis"
     "krizovatka ovladani"
     "paticka paticka";
@@ -24,6 +24,10 @@ html { box-sizing: border-box; }
 .hlavicka {
     grid-area: hlavicka;
     display: flex;
+}
+
+.prazdno {
+    grid-area: prazdno;
 }
 
 .ovladani-nadpis {
@@ -45,8 +49,17 @@ html { box-sizing: border-box; }
 
 body {
     font-family: 'Montserrat', sans-serif;
+    color: whitesmoke;
+    background-color: rgb(41, 83, 114);
+    margin: 30px 50px 0px 50px;
 }
 
 .krizovatka-grafika {
     width: 100%;
+}
+
+.logo {
+    margin-top: 10px;
+    margin-right: 20px;
+    width: 60px;
 }
