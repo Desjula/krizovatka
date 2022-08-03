@@ -7,3 +7,35 @@ html { box-sizing: border-box; }
     height: 200px;
     background-color: black;
 }
+
+/* grid + flexbox */
+.grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: auto auto 100px;
+    grid-template-areas: 
+    "hlavicka ovladani-nadpis"
+    "krizovatka ovladani"
+    "paticka paticka";
+}
+
+.hlavicka {
+    grid-area: hlavicka;
+    display: flex;
+}
+
+.ovladani-nadpis {
+    grid-area: ovladani-nadpis;
+}
+
+.krizovatka {
+    grid-area: krizovatka;
+}
+
+.ovladani {
+    grid-area: ovladani;
+}
+
+.paticka{
+    grid-area: paticka;
+}
