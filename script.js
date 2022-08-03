@@ -1,8 +1,7 @@
-/*let ZelenaCervena = document.querySelector("blikani--r");
-ZelenaCervena.style.color = "green";*/
+let client = new Paho.MQTT.Client(
+    'd57a0d1c39d54550b147b58411d86743.s2.eu.hivemq.cloud',
+    8884,
+    'letni-skola' + Math.random()
+)
 
 
-function Probliknuti(){
-    let ZelenaCervena = document.querySelector(".blikani--r");
-    ZelenaCervena.className("blikani--g");
-}
