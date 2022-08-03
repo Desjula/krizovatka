@@ -12,9 +12,10 @@ html { box-sizing: border-box; }
 .grid {
     display: grid;
     grid-template-columns: 3fr 2fr;
-    grid-template-rows: auto auto 100px;
+    grid-template-rows: auto auto auto 100px;
     grid-template-areas: 
-    "hlavicka ovladani-nadpis"
+    "hlavicka hlavicka"
+    "krizovatka ovladani-nadpis"
     "krizovatka ovladani"
     "paticka paticka";
 }
