@@ -67,5 +67,3 @@ function zmenSemafor(kCemu,cisloSemaforu) {
         pocetTiku += 1
     }
 }
-
-zmenSemafor("zelena", svetlo)
