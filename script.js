@@ -163,9 +163,6 @@ let cislaSvetelSemaforu = [
     prechodPravyDoleR,
     zavoryLeva,
     zavoryPrava
-<<<<<<< HEAD
-]*/
-=======
 ]
 
 
@@ -200,4 +197,3 @@ const nastavCervenySemaforNaWebu = (zelenySemaforId) => {
     let semaforNaPrebarveni = document.getElementById(zelenySemaforId)
     semaforNaPrebarveni.style.display = "none"
 }
->>>>>>> 2d92d00c814b594c61b44c5a57816f7099fd3c05
