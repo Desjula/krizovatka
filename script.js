@@ -25,11 +25,10 @@ client.connect({
 
 //////////////
 
-
 let svetlo = document.querySelector(".svetlo");
 let pocetTiku = 0
 let semafor
-let chodci1
+let kZelene
 let kCervene
 
 let stop = document.querySelector(".stop");
@@ -37,16 +36,15 @@ stop.addEventListener("click", function(){
     clearInterval(semafor);
 })
 
-/*
-let chodci1 = document.querySelector(".chodci1");
-chodci1.addEventListener("click", function(){
+let KZelene = document.querySelector(".KZelene");
+KZelene.addEventListener("click", function(){
     zmenSemafor("zelena",svetlo);
 })
 
 let KCervene = document.querySelector(".KCervene");
 KCervene.addEventListener("click", function(){
     zmenSemafor("cervena",svetlo)
-})*/
+})
 
 function zmenSemafor(kCemu,cisloSemaforu) {
     let barvy = [] 
@@ -69,14 +67,72 @@ function zmenSemafor(kCemu,cisloSemaforu) {
     }
 }
 
-function zmenaSemaforuNaZelenou () {
+//funkce pro rozsvecení ledek
+
+function semaforChodciZelena () {
     message = new Paho.MQTT.Message("W00");
-    message.destinationName = "/crossing/semaphore/2";
+    message.destinationName = "/crossing/semaphore/13";
     client.send(message);
 }
 
-function zmenaSemaforuNaCervenou () {
+function semaforChodciCervena () {
     message = new Paho.MQTT.Message("D00");
-    message.destinationName = "/crossing/semaphore/2";
+    message.destinationName = "/crossing/semaphore/13";
     client.send(message);
 }
+
+function semaforAutaCervena () {
+    message = new Paho.MQTT.Message("R00");
+    message.destinationName = "/crossing/semaphore/13";
+    client.send(message);
+}
+
+function semaforAutaOranzova () {
+    message = new Paho.MQTT.Message("P00");
+    message.destinationName = "/crossing/semaphore/13";
+    client.send(message);
+}
+
+function semaforAutaZelena () {
+    message = new Paho.MQTT.Message("G00");
+    message.destinationName = "/crossing/semaphore/13";
+    client.send(message);
+}
+
+//připojení funkcí k tlačítkům
+
+let zelenaChodci = document.querySelector(".zelenaChodci");
+zelenaChodci.addEventListener("click", function(){
+    semaforChodciZelena();
+})
+
+let cervenaChodci = document.querySelector(".cervenaChodci");
+cervenaChodci.addEventListener("click", function(){
+    semaforChodciCervena();
+})
+
+let zelenaAuta = document.querySelector(".zelenaAuta");
+zelenaAuta.addEventListener("click", function(){
+    semaforAutaZelena();
+})
+
+let oranzovaAuta = document.querySelector(".oranzovaAuta");
+oranzovaAuta.addEventListener("click", function(){
+    semaforAutaOranzova();
+})
+
+let cervenaAuta = document.querySelector(".cervenaAuta");
+cervenaAuta.addEventListener("click", function(){
+    semaforAutaCervena();
+})
+
+// pole s příkazy pro svícení
+
+//let semaforChodci = [D00, W00]
+//udělat cykly semaforů pomocí pole a cyklů
+
+
+//let semaforAuta = [R00, P00, G00]  //O00?
+
+
+
