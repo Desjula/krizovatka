@@ -31,10 +31,7 @@ let semafor
 let kZelene
 let kCervene
 
-let stop = document.querySelector(".stop");
-stop.addEventListener("click", function(){
-    clearInterval(semafor);
-})
+
 
 let KZelene = document.querySelector(".KZelene");
 KZelene.addEventListener("click", function(){

@@ -135,3 +135,9 @@ body {
     margin-right: 20px;
     width: 60px;
 }
+
+.ovladani-button {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    padding: 5px;
+}
