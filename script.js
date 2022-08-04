@@ -42,7 +42,6 @@ KCervene.addEventListener("click", function(){
     zmenSemafor("cervena",svetlo)
 })
 
-
 function zmenSemafor(kCemu,cisloSemaforu) {
     let barvy = [] 
     if (kCemu == "zelena"){
@@ -85,8 +84,14 @@ function semaforAutaCervena () {
     client.send(message);
 }
 
-function semaforAutaOranzova () {
+function semaforAutaOranzovoCervena () {
     message = new Paho.MQTT.Message("P00");
+    message.destinationName = "/crossing/semaphore/13";
+    client.send(message);
+}
+
+function semaforAutaOranzova () {
+    message = new Paho.MQTT.Message("O00");
     message.destinationName = "/crossing/semaphore/13";
     client.send(message);
 }
@@ -114,6 +119,11 @@ zelenaAuta.addEventListener("click", function(){
     semaforAutaZelena();
 })
 
+let oranzovoCervenaAuta = document.querySelector(".oranzovoCervenaAuta");
+oranzovAuta.addEventListener("click", function(){
+    semaforAutaOranzovoCervena();
+})
+
 let oranzovaAuta = document.querySelector(".oranzovaAuta");
 oranzovaAuta.addEventListener("click", function(){
     semaforAutaOranzova();
@@ -131,43 +141,74 @@ cervenaAuta.addEventListener("click", function(){
 
 
 //let semaforAuta = [R00, P00, G00]
-/*
-let cislaSvetelSemaforu = [
-    pravaSipka,
-    pravaG,
-    pravaO,
-    pravaR,
-    nahoreRovneG,
-    nahoreRovneO,
-    nahoreRovneR,
-    nahoreDolevaG,
-    nahoreDolevaO,
-    nahoreDolevaR,
-    levaSipka,
-    levaG,
-    levaO,
-    levaR,
-    doleRovneG,
-    doleRovneO,
-    doleRovneR,
-    doleDolevaG,
-    doleDolevaO,
-    doleDolevaR,
-    prechodLevyNahoreG,
-    prechodLevyDoleG,
-    prechodLevyNahoreR,
-    prechodLevyDoleR,
-    prechodPravyNahoreG,
-    prechodPravyDoleG,
-    prechodPravyNahoreR,
-    prechodPravyDoleR,
-    zavoryLeva,
-    zavoryPrava
+
+
+
+
+
+
+
+
+
+
+// let cislaSvetelSemaforu = [
+//     semaforJednaSipka,
+//     semaforJednaG,
+//     semaforJednaO,
+//     semaforJednaR,
+//     semaforDvaRovneG,
+//     semaforDvaRovneO,
+//     semaforDvaRovneR,
+//     semaforDvaDolevaG,
+//     semaforDvaDolevaO,
+//     semaforDvaDolevaR,
+//     semaforTriSipka,
+//     semaforTriG,
+//     semaforTriO,
+//     semaforTriR,
+//     semaforCtyriRovneG,
+//     semaforCtyriRovneO,
+//     semaforCtyriRovneR,
+//     semaforCtyriDolevaG,
+//     semaforCtyriDolevaO,
+//     semaforCtyriDolevaR,
+//     prechodLevyNahoreG,
+//     prechodLevyDoleG,
+//     prechodLevyNahoreR,
+//     prechodLevyDoleR,
+//     prechodPravyNahoreG,
+//     prechodPravyDoleG,
+//     prechodPravyNahoreR,
+//     prechodPravyDoleR,
+//     zavoryLeva,
+//     zavoryPrava
+// ]
+
+let stavSemaforu = 0;
+
+let funkceProCyklusSemaforu = [
+    semaforAutaCervena,
+    semaforAutaOranzovoCervena,
+    semaforAutaZelena,
+    semaforAutaOranzova,
+    semaforAutaCervena
 ]
 
+function cyklusZmenyBarvySemaforu(){
+    funkceProCyklusSemaforu[stavSemaforu]();
+
+    stavSemaforu++;
+
+    if (stavSemaforu >= funkceProCyklusSemaforu.length){
+        stavSemaforu = 0;
+    }
+}
 
 
-
+let cyklusSemaforu = document.querySelector(".cyklusSemaforu");
+cyklusSemaforu.addEventListener("click", function(){
+    myInterval = setInterval(cyklusZmenyBarvySemaforu, 2000);
+})
 
 
 
