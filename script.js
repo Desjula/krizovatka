@@ -81,13 +81,18 @@ function semaforBlika(){
     }
 }
 
+const zacniIntervalBlikani = () => {
+    intervalBlikani = setInterval(semaforBlika, 500);
+}
+
 const zastavIntervalBlikani = () => {
     clearInterval(intervalBlikani)
 }
 
-intervalBlikani = setInterval(semaforBlika, 300);
-
-zastavIntervalBlikani()
+let tlacitkoBlikaniStart = document.querySelector("#jede-vlak")
+tlacitkoBlikaniStart.addEventListener("click", zacniIntervalBlikani)
+let tlacitkoBlikaniStop = document.querySelector("#nejede-vlak")
+tlacitkoBlikaniStop.addEventListener("click", zastavIntervalBlikani)
 
 let svetlo = document.querySelector(".svetlo");
 let pocetTiku = 0
