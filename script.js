@@ -31,8 +31,7 @@ let semafor
 let kZelene
 let kCervene
 
-
-
+/*
 let KZelene = document.querySelector(".KZelene");
 KZelene.addEventListener("click", function(){
     zmenSemafor("zelena",svetlo);
@@ -42,6 +41,7 @@ let KCervene = document.querySelector(".KCervene");
 KCervene.addEventListener("click", function(){
     zmenSemafor("cervena",svetlo)
 })
+
 
 function zmenSemafor(kCemu,cisloSemaforu) {
     let barvy = [] 
@@ -56,13 +56,14 @@ function zmenSemafor(kCemu,cisloSemaforu) {
         clearInterval(semafor)
         pocetTiku = 0 
     }
-    
     },1000)
+
+
     function urcitSemafor(cisloSemaforu){
         cisloSemaforu.style.backgroundColor = barvy[pocetTiku]
         pocetTiku += 1
     }
-}
+}*/
 
 //funkce pro rozsvecení ledek
 
@@ -130,7 +131,7 @@ cervenaAuta.addEventListener("click", function(){
 
 
 //let semaforAuta = [R00, P00, G00]
-
+/*
 let cislaSvetelSemaforu = [
     pravaSipka,
     pravaG,
@@ -162,4 +163,4 @@ let cislaSvetelSemaforu = [
     prechodPravyDoleR,
     zavoryLeva,
     zavoryPrava
-]
+]*/
