@@ -25,6 +25,70 @@ client.connect({
 
 //////////////
 
+//prebarveni semaforu na webovkach
+//jako argument: "id"
+
+const nastavZelenySemaforNaWebu = (zelenySemaforId) => {
+    let semaforNaPrebarveni = document.getElementById(zelenySemaforId)
+    semaforNaPrebarveni.style.display = "block"
+}
+
+const nastavCervenySemaforNaWebu = (zelenySemaforId) => {
+    let semaforNaPrebarveni = document.getElementById(zelenySemaforId)
+    semaforNaPrebarveni.style.display = "none"
+}
+
+function semaforLevaOn(){
+    message = new Paho.MQTT.Message("on");
+    message.destinationName = "/rail-crossing/led/13";
+    client.send(message);
+    message = new Paho.MQTT.Message("beep");
+    message.destinationName = "/rail-crossing/sirene";
+    client.send(message);
+}
+function semaforPravaOn(){
+    message = new Paho.MQTT.Message("on");
+    message.destinationName = "/rail-crossing/led/12";
+    client.send(message);
+}
+function semaforLevaOff(){
+    message = new Paho.MQTT.Message("off");
+    message.destinationName = "/rail-crossing/led/13";
+    client.send(message);
+    message = new Paho.MQTT.Message("beep");
+    message.destinationName = "/rail-crossing/sirene";
+    client.send(message);
+}
+function semaforPravaOff(){
+    message = new Paho.MQTT.Message("off");
+    message.destinationName = "/rail-crossing/led/12";
+    client.send(message);
+}
+
+let intervalBlikani
+let stavSemaforu = false;
+
+function semaforBlika(){
+    console.log("Vlak jede")
+    if (stavSemaforu == false) {
+        semaforLevaOn();
+        semaforPravaOff();
+        stavSemaforu = true;
+    }else {
+        semaforLevaOff();
+        semaforPravaOn();
+        stavSemaforu = false;
+    }
+}
+
+const zastavIntervalBlikani = () => {
+    clearInterval(intervalBlikani)
+}
+
+intervalBlikani = setInterval(semaforBlika, 300);
+
+zastavIntervalBlikani()
+
 let svetlo = document.querySelector(".svetlo");
 let pocetTiku = 0
 let semafor
@@ -193,6 +257,7 @@ let funkceProCyklusSemaforu = [
     semaforAutaOranzova,
     semaforAutaCervena
 ]
+*/
 
 function cyklusZmenyBarvySemaforu(){
     funkceProCyklusSemaforu[stavSemaforu]();
@@ -227,14 +292,4 @@ cyklusSemaforu.addEventListener("click", function(){
 
 
 
-//prebarveni semaforu na webovkach
 
-const nastavZelenySemaforNaWebu = (zelenySemaforId) => {
-    let semaforNaPrebarveni = document.getElementById(zelenySemaforId)
-    semaforNaPrebarveni.style.display = "block"
-}
-
-const nastavCervenySemaforNaWebu = (zelenySemaforId) => {
-    let semaforNaPrebarveni = document.getElementById(zelenySemaforId)
-    semaforNaPrebarveni.style.display = "none"
-}
