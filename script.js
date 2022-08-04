@@ -24,6 +24,20 @@ client.connect({
 });
 
 //////////////
+
+//prebarveni semaforu na webovkach
+//jako argument: "id"
+
+const nastavZelenySemaforNaWebu = (zelenySemaforId) => {
+    let semaforNaPrebarveni = document.getElementById(zelenySemaforId)
+    semaforNaPrebarveni.style.display = "block"
+}
+
+const nastavCervenySemaforNaWebu = (zelenySemaforId) => {
+    let semaforNaPrebarveni = document.getElementById(zelenySemaforId)
+    semaforNaPrebarveni.style.display = "none"
+}
+
 function semaforLevaOn(){
     message = new Paho.MQTT.Message("on");
     message.destinationName = "/rail-crossing/led/13";
@@ -237,15 +251,4 @@ let cislaSvetelSemaforu = [
 
 
 
-//prebarveni semaforu na webovkach
-//jako argument: "id"
 
-const nastavZelenySemaforNaWebu = (zelenySemaforId) => {
-    let semaforNaPrebarveni = document.getElementById(zelenySemaforId)
-    semaforNaPrebarveni.style.display = "block"
-}
-
-const nastavCervenySemaforNaWebu = (zelenySemaforId) => {
-    let semaforNaPrebarveni = document.getElementById(zelenySemaforId)
-    semaforNaPrebarveni.style.display = "none"
-}
