@@ -1,0 +1,24 @@
+let stavSemaforuAutaKC = 0;
+
+let funkceProCyklusSemaforuKC = [
+    semaforAutaCervena,
+    semaforAutaOranzovoCervena,
+    semaforAutaZelena,
+    semaforAutaOranzova,
+    semaforAutaCervena
+]
+
+function cyklusZmenyBarvySemaforuKC(){
+    funkceProCyklusSemaforuKC[stavSemaforuAutaKC]();
+
+    stavSemaforuAutaKC++;
+
+    if (stavSemaforuAutaKC >= funkceProCyklusSemaforuKC.length){
+        stavSemaforuAutaKC = 0;
+    }
+}
+
+let cyklusSemaforuKC = document.querySelector(".cyklusSemaforuKC");
+cyklusSemaforuKC.addEventListener("click", function(){
+    intervalKCervene = setInterval(cyklusZmenyBarvySemaforuKC, 2000);
+})
