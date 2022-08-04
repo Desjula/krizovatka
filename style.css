@@ -36,6 +36,7 @@ html { box-sizing: border-box; }
 
 .krizovatka {
     grid-area: krizovatka;
+    position: relative;
 }
 
 .ovladani {
@@ -46,7 +47,26 @@ html { box-sizing: border-box; }
     grid-area: paticka;
 }
 /* ------------------------------------- */
+/* pozicovani semaforu */
+img:not(.krizovatka-grafika, .logo) {
+    position: absolute;
+}
 
+.semafor-img {
+    width: calc(15 / 297 * 100%);
+}
+
+.semafor-chodci-img {
+    width: calc(20 / 297 * 100%);
+}
+
+#r1, #z1 {
+    top: calc(82.7 / 210 * 100%);
+    left: calc(180.7 / 297 * 100%);
+}
+
+
+/* ------------------------------------- */
 body {
     font-family: 'Montserrat', sans-serif;
     color: whitesmoke;
