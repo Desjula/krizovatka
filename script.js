@@ -38,6 +38,16 @@ const nastavCervenySemaforNaWebu = (zelenySemaforId) => {
     semaforNaPrebarveni.style.display = "none"
 }
 
+const zobrazCyklus1NaWebu = () => {
+    nastavZelenySemaforNaWebu("z3")
+    nastavZelenySemaforNaWebu("z6") 
+    let semaforyNaPrebarveni = ["z1", "z2", "z4", "z5", "z7", "z8", "z1-1", "z4-1", "chodci-z1", "chodci-z2"]
+    for (let i = 0; i < semaforyNaPrebarveni; i++) {
+        nastavCervenySemaforNaWebu(semaforyNaPrebarveni[i])
+    }
+}
+
+
 function semaforLevaOn(){
     message = new Paho.MQTT.Message("on");
     message.destinationName = "/rail-crossing/led/13";
