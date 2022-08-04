@@ -24,6 +24,50 @@ client.connect({
 });
 
 //////////////
+function semaforLevaOn(){
+    message = new Paho.MQTT.Message("on");
+    message.destinationName = "/rail-crossing/led/13";
+    client.send(message);
+    message = new Paho.MQTT.Message("beep");
+    message.destinationName = "/rail-crossing/sirene";
+    client.send(message);
+}
+function semaforPravaOn(){
+    message = new Paho.MQTT.Message("on");
+    message.destinationName = "/rail-crossing/led/12";
+    client.send(message);
+}
+function semaforLevaOff(){
+    message = new Paho.MQTT.Message("off");
+    message.destinationName = "/rail-crossing/led/13";
+    client.send(message);
+    message = new Paho.MQTT.Message("beep");
+    message.destinationName = "/rail-crossing/sirene";
+    client.send(message);
+}
+function semaforPravaOff(){
+    message = new Paho.MQTT.Message("off");
+    message.destinationName = "/rail-crossing/led/12";
+    client.send(message);
+}
+
+let intervalBlikani
+let stavSemaforu = false;
+
+function semaforBlika(){
+    console.log("Vlak jede")
+    if (stavSemaforu == false) {
+        semaforLevaOn();
+        semaforPravaOff();
+        stavSemaforu = true;
+    }else {
+        semaforLevaOff();
+        semaforPravaOn();
+        stavSemaforu = false;
+    }
+}
+
+intervalBlikani = setInterval(semaforBlika, 500); 
 
 let svetlo = document.querySelector(".svetlo");
 let pocetTiku = 0
@@ -188,6 +232,7 @@ let cislaSvetelSemaforu = [
 
 
 //prebarveni semaforu na webovkach
+//jako argument: "id"
 
 const nastavZelenySemaforNaWebu = (zelenySemaforId) => {
     let semaforNaPrebarveni = document.getElementById(zelenySemaforId)
