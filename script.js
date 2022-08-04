@@ -71,7 +71,9 @@ const zastavIntervalBlikani = () => {
     clearInterval(intervalBlikani)
 }
 
-intervalBlikani = setInterval(semaforBlika, 500); 
+intervalBlikani = setInterval(semaforBlika, 300);
+
+zastavIntervalBlikani()
 
 let svetlo = document.querySelector(".svetlo");
 let pocetTiku = 0
