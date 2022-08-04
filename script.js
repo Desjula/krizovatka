@@ -95,6 +95,8 @@ let tlacitkoBlikaniStop = document.querySelector("#nejede-vlak")
 tlacitkoBlikaniStop.addEventListener("click", zastavIntervalBlikani)
 
 
+
+////////
 //funkce pro rozsvecení ledek
 
 function semaforChodciZelena () {
@@ -165,22 +167,6 @@ cervenaAuta.addEventListener("click", function(){
     semaforAutaCervena();
 })
 
-// pole s příkazy pro svícení
-
-//let semaforChodci = [D00, W00]
-//udělat cykly semaforů pomocí pole a cyklů
-
-
-//let semaforAuta = [R00, P00, G00]
-
-
-
-
-
-
-
-
-
 
 // let cislaSvetelSemaforu = [
 //     semaforJednaSipka,
@@ -225,7 +211,6 @@ let funkceProCyklusSemaforu = [
     semaforAutaCervena
 ]
 
-
 function cyklusZmenyBarvySemaforu(){
     funkceProCyklusSemaforu[stavSemaforuAuta]();
 
@@ -235,7 +220,6 @@ function cyklusZmenyBarvySemaforu(){
         stavSemaforuAuta = 0;
     }
 }
-
 
 let cyklusSemaforu = document.querySelector(".cyklusSemaforu");
 cyklusSemaforu.addEventListener("click", function(){
