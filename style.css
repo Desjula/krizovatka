@@ -1,13 +1,6 @@
 html { box-sizing: border-box; }
 *, ::before, ::after { box-sizing: inherit; }
 
-
-.svetlo{
-    width: 200px;
-    height: 200px;
-    background-color: black;
-}
-
 /* grid + flexbox */
 .grid {
     display: grid;
