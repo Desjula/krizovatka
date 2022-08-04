@@ -138,7 +138,11 @@ body {
 }
 
 .ovladani-button {
+    font-size: 15px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    padding: 5px;
+    padding: 4px;
+    margin: 2px;
+    border: 1px solid rgb(41, 48, 77);
+    border-radius: 3px;
 }
