@@ -67,6 +67,10 @@ function semaforBlika(){
     }
 }
 
+const zastavIntervalBlikani = () => {
+    clearInterval(intervalBlikani)
+}
+
 intervalBlikani = setInterval(semaforBlika, 500); 
 
 let svetlo = document.querySelector(".svetlo");
