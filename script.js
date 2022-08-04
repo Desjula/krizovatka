@@ -132,7 +132,37 @@ cervenaAuta.addEventListener("click", function(){
 //udělat cykly semaforů pomocí pole a cyklů
 
 
-//let semaforAuta = [R00, P00, G00]  //O00?
+//let semaforAuta = [R00, P00, G00]
 
-
-
+let cislaSvetelSemaforu = [
+    pravaSipka,
+    pravaG,
+    pravaO,
+    pravaR,
+    nahoreRovneG,
+    nahoreRovneO,
+    nahoreRovneR,
+    nahoreDolevaG,
+    nahoreDolevaO,
+    nahoreDolevaR,
+    levaSipka,
+    levaG,
+    levaO,
+    levaR,
+    doleRovneG,
+    doleRovneO,
+    doleRovneR,
+    doleDolevaG,
+    doleDolevaO,
+    doleDolevaR,
+    prechodLevyNahoreG,
+    prechodLevyDoleG,
+    prechodLevyNahoreR,
+    prechodLevyDoleR,
+    prechodPravyNahoreG,
+    prechodPravyDoleG,
+    prechodPravyNahoreR,
+    prechodPravyDoleR,
+    zavoryLeva,
+    zavoryPrava
+]
