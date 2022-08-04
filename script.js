@@ -131,5 +131,14 @@ cervenaAuta.addEventListener("click", function(){
 
 //let semaforAuta = [R00, P00, G00]  //O00?
 
+//prebarveni semaforu na webovkach
 
+const nastavZelenySemaforNaWebu = (zelenySemaforId) => {
+    let semaforNaPrebarveni = document.getElementById(zelenySemaforId)
+    semaforNaPrebarveni.style.display = "block"
+}
 
+const nastavCervenySemaforNaWebu = (zelenySemaforId) => {
+    let semaforNaPrebarveni = document.getElementById(zelenySemaforId)
+    semaforNaPrebarveni.style.display = "none"
+}
