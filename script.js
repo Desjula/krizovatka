@@ -164,6 +164,7 @@ let cislaSvetelSemaforu = [
     zavoryLeva,
     zavoryPrava
 ]
+*/
 
 
 
