@@ -1,0 +1,51 @@
+html:
+<div class="svetlo"></div>
+<button class="ovladani-button KZelene">Zelená-první</button>
+<button class="ovladani-button KCervene">Červená-první</button>
+
+css:
+.svetlo{
+    width: 200px;
+    height: 200px;
+    background-color: black;
+}
+
+javascript:
+
+let svetlo = document.querySelector(".svetlo");
+let semafor
+let pocetTiku = 0
+let kZelene
+let kCervene
+
+let KZelene = document.querySelector(".KZelene");
+KZelene.addEventListener("click", function(){
+    zmenSemafor("zelena",svetlo);
+})
+
+let KCervene = document.querySelector(".KCervene");
+KCervene.addEventListener("click", function(){
+    zmenSemafor("cervena",svetlo)
+})
+
+function zmenSemafor(kCemu,cisloSemaforu) {
+    let barvy = [] 
+    if (kCemu == "zelena"){
+        barvy =  ["#FF0000", "#FFA500", "#00FF00"]
+    }else {
+        barvy = ["#00FF00", "#FFA500", "#FF0000"]
+    }
+    semafor = setInterval(function(){
+        urcitSemafor(cisloSemaforu)
+    if (pocetTiku == barvy.length){
+        clearInterval(semafor)
+        pocetTiku = 0 
+    }
+    },1000)
+
+
+    function urcitSemafor(cisloSemaforu){
+        cisloSemaforu.style.backgroundColor = barvy[pocetTiku]
+        pocetTiku += 1
+    }
+}

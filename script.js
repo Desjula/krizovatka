@@ -94,44 +94,6 @@ tlacitkoBlikaniStart.addEventListener("click", zacniIntervalBlikani)
 let tlacitkoBlikaniStop = document.querySelector("#nejede-vlak")
 tlacitkoBlikaniStop.addEventListener("click", zastavIntervalBlikani)
 
-let svetlo = document.querySelector(".svetlo");
-let pocetTiku = 0
-let semafor
-let kZelene
-let kCervene
-
-/*
-let KZelene = document.querySelector(".KZelene");
-KZelene.addEventListener("click", function(){
-    zmenSemafor("zelena",svetlo);
-})
-
-let KCervene = document.querySelector(".KCervene");
-KCervene.addEventListener("click", function(){
-    zmenSemafor("cervena",svetlo)
-})
-
-function zmenSemafor(kCemu,cisloSemaforu) {
-    let barvy = [] 
-    if (kCemu == "zelena"){
-        barvy =  ["#FF0000", "#FFA500", "#00FF00"]
-    }else {
-        barvy = ["#00FF00", "#FFA500", "#FF0000"]
-    }
-    semafor = setInterval(function(){
-        urcitSemafor(cisloSemaforu)
-    if (pocetTiku == barvy.length){
-        clearInterval(semafor)
-        pocetTiku = 0 
-    }
-    },1000)
-
-
-    function urcitSemafor(cisloSemaforu){
-        cisloSemaforu.style.backgroundColor = barvy[pocetTiku]
-        pocetTiku += 1
-    }
-}*/
 
 //funkce pro rozsvecení ledek
 
@@ -189,7 +151,7 @@ zelenaAuta.addEventListener("click", function(){
 })
 
 let oranzovoCervenaAuta = document.querySelector(".oranzovoCervenaAuta");
-oranzovAuta.addEventListener("click", function(){
+oranzovoCervenaAuta.addEventListener("click", function(){
     semaforAutaOranzovoCervena();
 })
 
@@ -253,7 +215,7 @@ cervenaAuta.addEventListener("click", function(){
 //     zavoryPrava
 // ]
 
-let stavSemaforu = 0;
+let stavSemaforuAuta = 0;
 
 let funkceProCyklusSemaforu = [
     semaforAutaCervena,
@@ -262,15 +224,15 @@ let funkceProCyklusSemaforu = [
     semaforAutaOranzova,
     semaforAutaCervena
 ]
-*/
+
 
 function cyklusZmenyBarvySemaforu(){
-    funkceProCyklusSemaforu[stavSemaforu]();
+    funkceProCyklusSemaforu[stavSemaforuAuta]();
 
-    stavSemaforu++;
+    stavSemaforuAuta++;
 
-    if (stavSemaforu >= funkceProCyklusSemaforu.length){
-        stavSemaforu = 0;
+    if (stavSemaforuAuta >= funkceProCyklusSemaforu.length){
+        stavSemaforuAuta = 0;
     }
 }
 
