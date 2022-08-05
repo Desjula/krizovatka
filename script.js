@@ -79,6 +79,11 @@ function nastavFaziCykluNaWebu(cisloFazeCyklu) {
             zeleneSemafory[i].style.display = "block"
         }
     }
+
+    if (cisloFazeCyklu === 1) {
+        zeleneSemafory[8].style.display = "block"
+        zeleneSemafory[9].style.display = "block"
+    }
 }
 
 function nastavVlakNaWebu() {
