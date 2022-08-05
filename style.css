@@ -154,6 +154,10 @@ h3 {
     border-radius: 3px;
 }
 
+.ovladani-button:hover:not(.start-stop) {
+    background-color: rgb(183, 183, 183);
+}
+
 .start-stop {
     font-size: 18px;
     font-weight: 600;
