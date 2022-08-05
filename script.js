@@ -347,12 +347,11 @@ function ZmenaBarvySemaforuKZ(cisloPinu, posunutiRozkazu){ //proleze pole nad ti
     }
 }
 
-let SemaforKZ = document.querySelector(".SemaforKZ");
-SemaforKZ.addEventListener("click", function(){
+function SemaforKZ() {
     ZmenaBarvySemaforuKZ(cisloPinu, posunutiRozkazu);
     myTimeoutKZelene = setTimeout(ZmenaBarvySemaforuKZ, 2000);
     myTimeoutKZelene = setTimeout(ZmenaBarvySemaforuKZ, 4000);
-})
+}
 
 //červená
 let stavSemaforuAutaKC = 0;
@@ -373,10 +372,8 @@ function ZmenaBarvySemaforuKC(cisloPinu, posunutiRozkazu){ //proleze pole nad ti
         stavSemaforuAutaKC = 0;
     }
 }
-
-let SemaforKC = document.querySelector(".SemaforKC");
-SemaforKC.addEventListener("click", function(){
+function SemaforKC(){
     ZmenaBarvySemaforuKC() ;
     myTimeoutKCervene = setTimeout(ZmenaBarvySemaforuKC, 2000);
     myTimeoutKCervene = setTimeout(ZmenaBarvySemaforuKC, 4000);
-})
+}
