@@ -111,14 +111,15 @@ nastavFaziCykluNaWebu(3)
 /////
 ///vlak, závory a blikání
 
+//jedničky
 //závory
-function zavoryNahoru(){
+function zavoryNahoru1(){
     message = new Paho.MQTT.Message("open");
     message.destinationName = "/rail-crossing/barrier/9";
     client.send(message);
 }
 
-function zavoryDolu(){
+function zavoryDolu1(){
     message = new Paho.MQTT.Message("close");
     message.destinationName = "/rail-crossing/barrier/9";
     client.send(message);
@@ -126,12 +127,12 @@ function zavoryDolu(){
 
 //pípání a blikání
 
-function obeSvetlaOff(){
-    semaforPravaOff();
-    semaforLevaOff();
+function obeSvetlaOff1(){
+    semaforPravaOff1();
+    semaforLevaOff1();
 }
 
-function semaforLevaOn(){
+function semaforLevaOn1(){
     message = new Paho.MQTT.Message("on");
     message.destinationName = "/rail-crossing/led/13";
     client.send(message);
@@ -140,7 +141,7 @@ function semaforLevaOn(){
     client.send(message);
 }
 
-function semaforLevaOff(){
+function semaforLevaOff1(){
     message = new Paho.MQTT.Message("off");
     message.destinationName = "/rail-crossing/led/13";
     client.send(message);
@@ -149,53 +150,129 @@ function semaforLevaOff(){
     client.send(message);
 }
 
-function semaforPravaOn(){
+function semaforPravaOn1(){
     message = new Paho.MQTT.Message("on");
     message.destinationName = "/rail-crossing/led/12";
     client.send(message);
 }
 
-function semaforPravaOff(){
+function semaforPravaOff1(){
     message = new Paho.MQTT.Message("off");
     message.destinationName = "/rail-crossing/led/12";
     client.send(message);
 }
 
-let intervalBlikani
-let stavSemaforu = false;
+let intervalBlikani1
+let stavSemaforu1 = false;
 
-function semaforBlika(){
-    console.log("Vlak jede")
-    if (stavSemaforu == false) {
-        semaforLevaOn();
-        semaforPravaOff();
-        stavSemaforu = true;
+function semaforBlika1(){
+    if (stavSemaforu1 == false) {
+        semaforLevaOn1();
+        semaforPravaOff1();
+        stavSemaforu1 = true;
     }else {
-        semaforLevaOff();
-        semaforPravaOn();
-        stavSemaforu = false;
+        semaforLevaOff1();
+        semaforPravaOn1();
+        stavSemaforu1 = false;
     }
 }
 
-const zacniIntervalBlikani = () => {
-    intervalBlikani = setInterval(semaforBlika, 500);
+const zacniIntervalBlikani1 = () => {
+    intervalBlikani1 = setInterval(semaforBlika1, 500);
 }
 
-const zastavIntervalBlikani = () => {
-    clearInterval(intervalBlikani)
+const zastavIntervalBlikani1 = () => {
+    clearInterval(intervalBlikani1)
 }
+
+
+////////////////////dvojky
+//závory dvojky
+function zavoryNahoru2(){
+    message = new Paho.MQTT.Message("open");
+    message.destinationName = "/rail-crossing/barrier/10";
+    client.send(message);
+}
+
+function zavoryDolu2(){
+    message = new Paho.MQTT.Message("close");
+    message.destinationName = "/rail-crossing/barrier/10";
+    client.send(message);
+}
+
+//blikání dvojky
+function obeSvetlaOff2(){
+    semaforPravaOff2();
+    semaforLevaOff2();
+}
+
+function semaforLevaOn2(){
+    message = new Paho.MQTT.Message("on");
+    message.destinationName = "/rail-crossing/led/8";
+    client.send(message);
+}
+
+function semaforLevaOff2(){
+    message = new Paho.MQTT.Message("off");
+    message.destinationName = "/rail-crossing/led/8";
+    client.send(message);
+}
+
+function semaforPravaOn2(){
+    message = new Paho.MQTT.Message("on");
+    message.destinationName = "/rail-crossing/led/7";
+    client.send(message);
+}
+
+function semaforPravaOff2(){
+    message = new Paho.MQTT.Message("off");
+    message.destinationName = "/rail-crossing/led/7";
+    client.send(message);
+}
+
+let intervalBlikani2
+let stavSemaforu2 = false;
+
+function semaforBlika2(){
+    if (stavSemaforu2 == false) {1
+        semaforLevaOn2();
+        semaforPravaOff2();
+        stavSemaforu2 = true;
+    }else {
+        semaforLevaOff2();
+        semaforPravaOn2();
+        stavSemaforu2 = false;
+    }
+}
+
+const zacniIntervalBlikani2 = () => {
+    intervalBlikani2 = setInterval(semaforBlika2, 500);
+}
+
+const zastavIntervalBlikani2 = () => {
+    clearInterval(intervalBlikani2)
+}
+
 
 ////funkce jede vlak
 
 function vlak (){
-    zacniIntervalBlikani();
+    zacniIntervalBlikani1();
     nastavVlakNaWebu();
-    setTimeout( function(){zavoryDolu()}, 2000);
+    setTimeout( function(){zavoryDolu1()}, 2000);
     setTimeout( function(){
-        zastavIntervalBlikani();
+        zastavIntervalBlikani1();
         nastavKonecVlakuNaWebu();
-        setTimeout( function(){zavoryNahoru()}, 2000);
-        obeSvetlaOff()
+        setTimeout( function(){zavoryNahoru1()}, 2000);
+        obeSvetlaOff1()
+    }, 10000)
+
+    zacniIntervalBlikani2();
+    setTimeout( function(){zavoryDolu2()}, 2000);
+    setTimeout( function(){
+        zastavIntervalBlikani2();
+        setTimeout( function(){zavoryNahoru2()}, 2000);
+        obeSvetlaOff2()
     }, 10000)
 }
 
