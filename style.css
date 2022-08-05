@@ -44,7 +44,7 @@ html { box-sizing: border-box; }
 /* pozicovani semaforu */
 img:not(.krizovatka-grafika, .logo) {
     position: absolute;
-    transition: 0.2s ease-out;
+    transition: 0.3s ease-out;
 }
 
 .semafor-img {
@@ -170,11 +170,11 @@ h3 {
 .start {
     color: whitesmoke;
     border: 2px solid whitesmoke;
-    background-color: rgb(25, 40, 63);
+    background-color: rgb(31, 49, 75);
 }
 
 .start:hover {
-    background-color: rgb(17, 29, 49);
+    background-color: rgb(14, 22, 39);
 }
 
 .stop {
