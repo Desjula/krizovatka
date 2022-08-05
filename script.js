@@ -26,27 +26,73 @@ client.connect({
 //////////////
 
 //prebarveni semaforu na webovkach
-//jako argument: "id"
 
-const nastavZelenySemaforNaWebu = (zelenySemaforId) => {
-    let semaforNaPrebarveni = document.getElementById(zelenySemaforId)
-    semaforNaPrebarveni.style.display = "block"
-}
+let zeleneSemafory = document.querySelectorAll(".zeleny-semafor")
 
-const nastavCervenySemaforNaWebu = (zelenySemaforId) => {
-    let semaforNaPrebarveni = document.getElementById(zelenySemaforId)
-    semaforNaPrebarveni.style.display = "none"
-}
+// function nastavCyklus1NaWebu() {
+//     for (let i = 0; i < zeleneSemafory.length; i++) {
+//         if (i !== 2 && i != 5) {
+//             zeleneSemafory[i].style.display = "none"
+//         }
+//         else {
+//             zeleneSemafory[i].style.display = "block"
+//         }
+//     }
+// }
 
-const zobrazCyklus1NaWebu = () => {
-    nastavZelenySemaforNaWebu("z3")
-    nastavZelenySemaforNaWebu("z6") 
-    let semaforyNaPrebarveni = ["z1", "z2", "z3", "z4", "z5", "z6", "z7", "z8", "z1-1", "z4-1", "chodci-z1", "chodci-z2"]
-    for (let i = 0; i < semaforyNaPrebarveni; i++) {
-        nastavCervenySemaforNaWebu(semaforyNaPrebarveni[i])
+function nastavFaziCykluNaWebu(cisloFazeCyklu) {
+    let semafor1
+    let semafor2
+    let semafor3
+
+    if (cisloFazeCyklu === 1) {
+        semafor1 = 2
+        semafor2 = 5
+        semafor3 = zeleneSemafory.length
+    }
+    else if (cisloFazeCyklu === 2) {
+        semafor1 = 1
+        semafor2 = 2
+        semafor3 = 8
+    }
+    else if (cisloFazeCyklu === 3) {
+        semafor1 = 3
+        semafor2 = 8
+        semafor3 = zeleneSemafory.length
+    }
+    else if (cisloFazeCyklu === 4) {
+        semafor1 = 0
+        semafor2 = 9
+        semafor3 = zeleneSemafory.length
+    }
+    else if (cisloFazeCyklu === 5) {
+        semafor1 = 4
+        semafor2 = 5
+        semafor3 = 9
+    }
+
+    for (let i = 0; i < zeleneSemafory.length; i++) {
+        if (i != semafor1 && i!= semafor2 && i != semafor3 && i != 6 && i != 7) {
+            zeleneSemafory[i].style.display = "none"
+        }
+        else {
+            zeleneSemafory[i].style.display = "block"
+        }
     }
 }
 
+function nastavVlakNaWebu() {
+    for (let i = 0; i < zeleneSemafory.length; i++) {
+        if (i != 10 && i != 11) {
+            zeleneSemafory[i].style.display = "none"
+        }
+        else {
+            zeleneSemafory[i].style.display = "block"
+        }
+    }
+}
+
+nastavFaziCykluNaWebu(3)
 
 function semaforLevaOn(){
     message = new Paho.MQTT.Message("on");
@@ -101,8 +147,10 @@ const zastavIntervalBlikani = () => {
 
 let tlacitkoBlikaniStart = document.querySelector("#jede-vlak")
 tlacitkoBlikaniStart.addEventListener("click", zacniIntervalBlikani)
+tlacitkoBlikaniStart.addEventListener("click", nastavVlakNaWebu)
 let tlacitkoBlikaniStop = document.querySelector("#nejede-vlak")
 tlacitkoBlikaniStop.addEventListener("click", zastavIntervalBlikani)
+
 
 
 
