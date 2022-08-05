@@ -44,6 +44,8 @@ let zeleneSemafory = document.querySelectorAll(".zeleny-semafor")
 //     }
 // }
 
+// funkce pro zobrazeni Fáze cyklu na webu
+// parametr = fáze cyklu (1-5)
 function nastavFaziCykluNaWebu(cisloFazeCyklu) {
     let semafor1
     let semafor2
@@ -201,44 +203,45 @@ function vlak (){
 ////////
 //funkce pro rozsvecení ledek
 
-function semaforChodciZelena () {
-    message = new Paho.MQTT.Message("W00");
-    message.destinationName = "/crossing/semaphore/13";
+function semaforChodciZelena (cisloPinu) {
+    message = new Paho.MQTT.Message("W" +  + posunutiRozkazu);
+    message.destinationName = "/crossing/semaphore/"+ cisloPinu;
     client.send(message);
 }
 
-function semaforChodciCervena () {
-    message = new Paho.MQTT.Message("D00");
-    message.destinationName = "/crossing/semaphore/13";
+function semaforChodciCervena (cisloPinu) {
+    message = new Paho.MQTT.Message("D" +  + posunutiRozkazu);
+    message.destinationName = "/crossing/semaphore/"+ cisloPinu;
     client.send(message);
 }
 
-function semaforAutaCervena (delkaCervene) {
-    message = new Paho.MQTT.Message("R00");
-    message.destinationName = "/crossing/semaphore/13";
+function semaforAutaCervena (cisloPinu, posunutiRozkazu) {
+    message = new Paho.MQTT.Message("R" +  + posunutiRozkazu);
+    message.destinationName = "/crossing/semaphore/"+ cisloPinu;
     client.send(message);
 }
 
-function semaforAutaOranzovoCervena () {
-    message = new Paho.MQTT.Message("P00");
-    message.destinationName = "/crossing/semaphore/13";
+function semaforAutaOranzovoCervena (cisloPinu, posunutiRozkazu) {
+    message = new Paho.MQTT.Message("P" +  + posunutiRozkazu);
+    message.destinationName = "/crossing/semaphore/"+ cisloPinu;
     client.send(message);
 }
 
-function semaforAutaOranzova () {
-    message = new Paho.MQTT.Message("O00");
-    message.destinationName = "/crossing/semaphore/13";
+function semaforAutaOranzova (cisloPinu, posunutiRozkazu) {
+    message = new Paho.MQTT.Message("O"  + posunutiRozkazu);
+    message.destinationName = "/crossing/semaphore/"+ cisloPinu;
     client.send(message);
 }
 
-function semaforAutaZelena () {
-    message = new Paho.MQTT.Message("G00");
-    message.destinationName = "/crossing/semaphore/13";
+function semaforAutaZelena (cisloPinu, posunutiRozkazu) {
+    message = new Paho.MQTT.Message("G" + posunutiRozkazu);
+    message.destinationName = "/crossing/semaphore/" + cisloPinu; //nevím jestli toto bude fungovatS
     client.send(message);
 }
 
 
 ////// funkce pro změnu světel
+// K zelene jsou tam narvaný parametry, jen nevím jestli to bude fungovat
 
 //zelená
 let stavSemaforuAutaKZ = 0;
@@ -249,8 +252,11 @@ let funkceProSemaforKZ = [
     semaforAutaZelena
 ]
 
-function ZmenaBarvySemaforuKZ(cisloSemaforu){
-    funkceProSemaforKZ[stavSemaforuAutaKZ]();
+function ZmenaBarvySemaforuKZ(cisloPinu, posunutiRozkazu){ //proleze pole nad tim a nastavi barvu k zelene
+    let zavolaniFunkceNadTim = funkceProSemaforKZ[stavSemaforuAutaKZ];
+    zavolaniFunkceNadTim(cisloPinu, posunutiRozkazu);
+
+
 
     stavSemaforuAutaKZ++;
 
@@ -261,7 +267,7 @@ function ZmenaBarvySemaforuKZ(cisloSemaforu){
 
 let SemaforKZ = document.querySelector(".SemaforKZ");
 SemaforKZ.addEventListener("click", function(){
-    ZmenaBarvySemaforuKZ();
+    ZmenaBarvySemaforuKZ(cisloPinu, posunutiRozkazu);
     myTimeoutKZelene = setTimeout(ZmenaBarvySemaforuKZ, 2000);
     myTimeoutKZelene = setTimeout(ZmenaBarvySemaforuKZ, 4000);
 })
@@ -275,8 +281,9 @@ let funkceProSemaforKC = [
     semaforAutaCervena
 ]
 
-function ZmenaBarvySemaforuKC(cisloSemaforu){
-    funkceProSemaforKC[stavSemaforuAutaKC]();
+function ZmenaBarvySemaforuKC(cisloPinu, posunutiRozkazu){ //proleze pole nad tim a nastavi barvu k cervene
+    let vyvolavaniPoleNadTim = funkceProSemaforKC[stavSemaforuAutaKC];
+    vyvolavaniPoleNadTim(cisloPinu, posunutiRozkazu);
 
     stavSemaforuAutaKC++;
 
