@@ -11,11 +11,37 @@
 // let semaforCtyriDoleva - pin 12
 // let prechodLevy -pin 13
 // let prechodPravy - pin 7
+let semaforJedna1C = SemaforKC('11', '00') // - jednicka
+let semaforJedna1Z = SemaforKZ('11', '00') 
+let semaforJedna2C = SemaforKC('11', '04')
+let semaforJedna2Z = SemaforKZ('11', '04') //-jednicka + (11,03) je odbočovací
+let semaforDvaDolevaC = SemaforKC('03', '06') //-dva doleva
+let semaforDvaDolevaZ = SemaforKZ('03', '06')
+let semaforDvaRovne1C = SemaforKC('03', '00') //-dva rovne
+let semaforDvaRovne2C = SemaforKC('03', '04')
+let semaforDvaRovne1Z = SemaforKZ('03', '00') //-dva rovne
+let semaforDvaRovne2C = SemaforKC('03', '04') //-dva rovne
+let semaforTriRovne1C = SemaforKC('06', '00') // -tri rovne
+let semaforTriRovne2C = SemaforKC('06', '04') // -tri rovne + (11,03)
+let semaforCtyriDolevaC = SemaforKC('12', '06') // ctyri doleva
+let semaforCtyriDole1C = SemaforKC('12', '04') // ctyri rovne
+let semaforCtyriDole2C = SemaforKC('12', '00') // ctyri rovne
+let semaforPrechodNahoreC = SemaforKC('07', '00') //prechod
+let semaforPrechodDoleC = SemaforKC('13', '00')
+let semaforDvaRovne2Z = SemaforKZ('03', '04') //-dva rovne
+let semaforTriRovne1Z = SemaforKZ('06', '00') // -tri rovne
+let semaforTriRovne2Z = SemaforKZ('06', '04') // -tri rovne + (11,03)
+let semaforCtyriDolevaZ = SemaforKZ('12', '06') // ctyri doleva
+let semaforCtyriDole1Z = SemaforKZ('12', '04') // ctyri rovne
+let semaforCtyriDole2Z = SemaforKZ('12', '00') // ctyri rovne
+let semaforPrechodNahoreZ = SemaforKZ('07', '00') //prechod
+let semaforPrechodDoleZ = SemaforKZ('13', '00')
+
 
 let start = document.querySelector('.start')
 start = addEventListener('click', function() {
     puvodniStav()
-    this.setInterval(spustCyklus(), 4000)
+    //this.setInterval(spustCyklus(), 4000)
 })
 
 let pocitadlo = 0
@@ -44,22 +70,22 @@ function spustCyklus()  {
 }
 function puvodniStav() {
     //nastav vsechny semafory na vychozi stav aby to neblblo pri prvni fazo
-    SemaforKC(11, 00) // - jednicka
-    SemaforKC(11, 04) //-jednicka + (11,03) je odbočovací
-    SemaforKC(03, 06) //-dva doleva
-    SemaforKC(03, 00) //-dva rovne
-    SemaforKC(03, 04) //-dva rovne
-    SemaforKC(06, 00) // -tri rovne
-    SemaforKZ(06, 04) // -tri rovne + (11,03)
-    SemaforKZ(12, 06) // ctyri doleva
-    SemaforKZ(12, 04) // ctyri rovne
-    SemaforKZ(12, 00) // ctyri rovne
-    SemaforKC(07, 00) //prechod
-    SemaforKC(13, 00) //prechod
+    SemaforKC('11', '00') // - jednicka
+    SemaforKC('11', '04') //-jednicka + (11,03) je odbočovací
+    SemaforKC('03', '06') //-dva doleva
+    SemaforKC('03', '00') //-dva rovne
+    SemaforKC('03', '04') //-dva rovne
+    SemaforKC('06', '00') // -tri rovne
+    SemaforKZ('06', '04') // -tri rovne + (11,03)
+    SemaforKZ('12', '06') // ctyri doleva
+    SemaforKZ('12', '04') // ctyri rovne
+    SemaforKZ('12', '00') // ctyri rovne
+    SemaforKZ('07', '00') //prechod
+    SemaforKZ('13', '00') //prechod
 
 }
 function fazePrvni() { // Sviti prechody, 4 a 2 - obe rovne. Zhasnou 4 doleva, 3 sipka
-    SemaforKC(semaforCtyriDoleva)
+    semaforCtyriDoleva
     SemaforKC(semaforTriSipka)
 
     SemaforKZ(prechodLevyDole)

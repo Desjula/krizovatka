@@ -347,7 +347,7 @@ function ZmenaBarvySemaforuKZ(cisloPinu, posunutiRozkazu){ //proleze pole nad ti
     }
 }
 
-function SemaforKZ() {
+function SemaforKZ(cisloPinu, posunutiRozkazu) {
     ZmenaBarvySemaforuKZ(cisloPinu, posunutiRozkazu);
     myTimeoutKZelene = setTimeout(ZmenaBarvySemaforuKZ, 2000);
     myTimeoutKZelene = setTimeout(ZmenaBarvySemaforuKZ, 4000);
