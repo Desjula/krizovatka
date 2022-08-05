@@ -44,6 +44,7 @@ html { box-sizing: border-box; }
 /* pozicovani semaforu */
 img:not(.krizovatka-grafika, .logo) {
     position: absolute;
+    transition: 0.3s ease-out;
 }
 
 .semafor-img {
@@ -152,23 +153,36 @@ h3 {
     margin: 2px;
     border: 1px solid rgb(0, 0, 0);
     border-radius: 3px;
+    transition: 0.15s;
+}
+
+.ovladani-button:hover:not(.start-stop) {
+    background-color: rgb(183, 183, 183);
 }
 
 .start-stop {
     font-size: 18px;
     font-weight: 600;
-    padding: 12px;
+    padding: 10px 12px;
     border-radius: 12px;
 }
 
 .start {
     color: whitesmoke;
     border: 2px solid whitesmoke;
-    background-color: rgb(25, 40, 63);
+    background-color: rgb(31, 49, 75);
+}
+
+.start:hover {
+    background-color: rgb(14, 22, 39);
 }
 
 .stop {
     color: rgb(25, 40, 63);
     border: 2px solid rgb(25, 40, 63);
     background-color: whitesmoke;
+}
+
+.stop:hover {
+    background-color: rgb(183, 183, 183);
 }

@@ -126,3 +126,49 @@ let cyklusSemaforuKC = document.querySelector(".cyklusSemaforuKC");
 cyklusSemaforuKC.addEventListener("click", function(){
     intervalKCervene = setInterval(cyklusZmenyBarvySemaforuKC, 2000);
 })
+
+TLAČÍTKA PRO ZÁVORY
+
+html:
+
+<h3>Závory</h3>
+<button class="ovladani-button zavoryNahoru">Závory nahoru</button>
+<button class="ovladani-button zavoryDolu">Závory dolů</button>
+
+javascript:
+
+let ZavoryDolu = document.querySelector(".zavoryDolu");
+ZavoryDolu.addEventListener("click", function(){
+    zavoryDolu();
+})
+
+let ZavoryNahoru = document.querySelector(".zavoryNahoru");
+ZavoryNahoru.addEventListener("click", function(){
+    zavoryNahoru();
+})
+
+
+VLAK PŘÍJEZ A ODJEZD
+
+html:
+
+<h3>Vlak</h3>
+<button id="jede-vlak" class="ovladani-button">Průjezd vlaku</button>
+<button id="nejede-vlak" class="ovladani-button" onclick="nastavKonecVlakuNaWebu()">Konec průjezdu vlaku</button>
+
+javascript:
+
+let tlacitkoBlikaniStart = document.querySelector("#jede-vlak")
+tlacitkoBlikaniStart.addEventListener("click", function(){
+    zacniIntervalBlikani();
+    nastavVlakNaWebu();
+    setTimeout( function(){zavoryDolu()}, 2000);
+})
+
+let tlacitkoBlikaniStop = document.querySelector("#nejede-vlak")
+tlacitkoBlikaniStop.addEventListener("click", function(){
+    zastavIntervalBlikani();
+    nastavKonecVlakuNaWebu();
+    setTimeout( function(){zavoryNahoru()}, 2000);
+    obeSvetlaOff()
+})
