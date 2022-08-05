@@ -167,8 +167,16 @@ h3 {
     background-color: rgb(25, 40, 63);
 }
 
+.start:hover {
+    background-color: rgb(17, 29, 49);
+}
+
 .stop {
     color: rgb(25, 40, 63);
     border: 2px solid rgb(25, 40, 63);
     background-color: whitesmoke;
+}
+
+.stop:hover {
+    background-color: rgb(183, 183, 183);
 }
