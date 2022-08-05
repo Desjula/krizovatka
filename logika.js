@@ -1,19 +1,16 @@
 //sem se vloží čísla pinů na kterých jsou semafory, možná rozkazy
 //posunuti rozkazu musi ybt string s dvema cislicemi!!!! napr "03"
 //asi bude lepsi to narvat rovnou do jednotlivych prikazu
-let semaforJednaSipka 
-let semaforJedna
-let semaforDvaDoleva 
-let semaforDvaRovne
-let semaforTri 
-let semaforTriSipka 
-let semaforCtyriRovne 
-let semaforCtyriDoleva 
-let semafor 
-let prechodLevyDole
-let prechodPravyDole
-let prechodPravyNahore 
-let prechodLevyNahore
+// let semaforJednaSipka -pin 11
+// let semaforJedna - pin 11
+// let semaforDvaDoleva - pin 3
+// let semaforDvaRovne - pin 3
+// let semaforTri - pin 6
+// let semaforTriSipka - pin 6
+// let semaforCtyriRovne - pin 12
+// let semaforCtyriDoleva - pin 12
+// let prechodLevy -pin 13
+// let prechodPravy - pin 7
 
 let start = document.querySelector('.start')
 start = addEventListener('click', function() {
@@ -47,18 +44,18 @@ function spustCyklus()  {
 }
 function puvodniStav() {
     //nastav vsechny semafory na vychozi stav aby to neblblo pri prvni fazo
-    SemaforKC(semaforJedna)
-    SemaforKC(semaforJednaSipka)
-    SemaforKC(semaforDvaDoleva)
-    SemaforKC(semaforDvaRovne)
-    SemaforKC(semaforTri)
-    SemaforKZ(semaforTriSipka) //
-    SemaforKZ(semaforCtyriDoleva) //
-    SemaforKZ(semaforCtyriRovne) //
-    SemaforKC(prechodLevyDole)
-    SemaforKC(prechodLevyNahore)
-    SemaforKC(prechodPravyDole)
-    SemaforKC(prechodPravyNahore)
+    SemaforKC(11, 00) // - jednicka
+    SemaforKC(11, 04) //-jednicka + (11,03) je odbočovací
+    SemaforKC(03, 06) //-dva doleva
+    SemaforKC(03, 00) //-dva rovne
+    SemaforKC(03, 04) //-dva rovne
+    SemaforKC(06, 00) // -tri rovne
+    SemaforKZ(06, 04) // -tri rovne + (11,03)
+    SemaforKZ(12, 06) // ctyri doleva
+    SemaforKZ(12, 04) // ctyri rovne
+    SemaforKZ(12, 00) // ctyri rovne
+    SemaforKC(07, 00) //prechod
+    SemaforKC(13, 00) //prechod
 
 }
 function fazePrvni() { // Sviti prechody, 4 a 2 - obe rovne. Zhasnou 4 doleva, 3 sipka
