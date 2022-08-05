@@ -75,31 +75,31 @@ function nastavFaziCykluNaWebu(cisloFazeCyklu) {
 
     for (let i = 0; i < zeleneSemafory.length; i++) {
         if (i != semafor1 && i!= semafor2 && i != semafor3) {
-            zeleneSemafory[i].style.display = "none"
+            zeleneSemafory[i].style.visibility = "hidden"
         }
         else {
-            zeleneSemafory[i].style.display = "block"
+            zeleneSemafory[i].style.visibility = "visible"
         }
     }
 
     if (cisloFazeCyklu === 1) {
-        zeleneSemafory[8].style.display = "block"
-        zeleneSemafory[9].style.display = "block"
+        zeleneSemafory[8].style.visibility = "visible"
+        zeleneSemafory[9].style.visibility = "visible"
     }
 }
 
 function nastavVlakNaWebu() {
     let semaforVlak1 = document.querySelector("#z7")
     let semaforVlak2 = document.querySelector("#z8")
-    semaforVlak1.style.display = "none",
-    semaforVlak2.style.display = "none"
+    semaforVlak1.style.visibility = "hidden",
+    semaforVlak2.style.visibility = "hidden"
 }
 
 function nastavKonecVlakuNaWebu() {
     let semaforVlak1 = document.querySelector("#z7")
     let semaforVlak2 = document.querySelector("#z8")
-    semaforVlak1.style.display = "block",
-    semaforVlak2.style.display = "block"
+    semaforVlak1.style.visibility = "visible",
+    semaforVlak2.style.visibility = "visible"
 }
 
 nastavFaziCykluNaWebu(3)

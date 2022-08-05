@@ -152,6 +152,7 @@ h3 {
     margin: 2px;
     border: 1px solid rgb(0, 0, 0);
     border-radius: 3px;
+    transition: 0.15s;
 }
 
 .ovladani-button:hover:not(.start-stop) {
