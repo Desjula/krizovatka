@@ -340,7 +340,7 @@ function ZmenaBarvySemaforuKZ(cisloPinu, posunutiRozkazu){ //proleze pole nad ti
 
     stavSemaforuAutaKZ++;
 
-    if (stavSemaforuAutaKZ >= funkceProSemaforKZ.length){
+    if (stavSemaforuAutaKZ == funkceProSemaforKZ.length){
         stavSemaforuAutaKZ = 0;
     }
 }
@@ -366,7 +366,7 @@ function ZmenaBarvySemaforuKC(cisloPinu, posunutiRozkazu){ //proleze pole nad ti
 
     stavSemaforuAutaKC++;
 
-    if (stavSemaforuAutaKC >= funkceProSemaforKC.length){
+    if (stavSemaforuAutaKC == funkceProSemaforKC.length){
         stavSemaforuAutaKC = 0;
     }
 }
