@@ -14,6 +14,10 @@ function onConnect() {
 function onMessageArrived(message) {
     console.log(message.destinationName);
     console.log(message.payloadString);
+    if (message.destinationName == "/rail-crossing/motion-detection/A0"){
+        console.log("vlak jede")
+        vlak();
+    }
 }
 
 client.connect({
@@ -104,6 +108,29 @@ function nastavKonecVlakuNaWebu() {
 
 nastavFaziCykluNaWebu(3)
 
+/////
+///vlak, závory a blikání
+
+//závory
+function zavoryNahoru(){
+    message = new Paho.MQTT.Message("open");
+    message.destinationName = "/rail-crossing/barrier/9";
+    client.send(message);
+}
+
+function zavoryDolu(){
+    message = new Paho.MQTT.Message("close");
+    message.destinationName = "/rail-crossing/barrier/9";
+    client.send(message);
+}
+
+//pípání a blikání
+
+function obeSvetlaOff(){
+    semaforPravaOff();
+    semaforLevaOff();
+}
+
 function semaforLevaOn(){
     message = new Paho.MQTT.Message("on");
     message.destinationName = "/rail-crossing/led/13";
@@ -112,11 +139,7 @@ function semaforLevaOn(){
     message.destinationName = "/rail-crossing/sirene";
     client.send(message);
 }
-function semaforPravaOn(){
-    message = new Paho.MQTT.Message("on");
-    message.destinationName = "/rail-crossing/led/12";
-    client.send(message);
-}
+
 function semaforLevaOff(){
     message = new Paho.MQTT.Message("off");
     message.destinationName = "/rail-crossing/led/13";
@@ -125,6 +148,13 @@ function semaforLevaOff(){
     message.destinationName = "/rail-crossing/sirene";
     client.send(message);
 }
+
+function semaforPravaOn(){
+    message = new Paho.MQTT.Message("on");
+    message.destinationName = "/rail-crossing/led/12";
+    client.send(message);
+}
+
 function semaforPravaOff(){
     message = new Paho.MQTT.Message("off");
     message.destinationName = "/rail-crossing/led/12";
@@ -155,14 +185,25 @@ const zastavIntervalBlikani = () => {
     clearInterval(intervalBlikani)
 }
 
-let tlacitkoBlikaniStart = document.querySelector("#jede-vlak")
-tlacitkoBlikaniStart.addEventListener("click", zacniIntervalBlikani)
-tlacitkoBlikaniStart.addEventListener("click", nastavVlakNaWebu)
-let tlacitkoBlikaniStop = document.querySelector("#nejede-vlak")
-tlacitkoBlikaniStop.addEventListener("click", zastavIntervalBlikani)
+////funkce jede vlak
 
+function vlak (){
+    zacniIntervalBlikani();
+    nastavVlakNaWebu();
+    setTimeout( function(){zavoryDolu()}, 2000);
+    setTimeout( function(){
+        zastavIntervalBlikani();
+        nastavKonecVlakuNaWebu();
+        setTimeout( function(){zavoryNahoru()}, 2000);
+        obeSvetlaOff()
+    }, 10000)
+}
 
-
+//tlačítko jede vlak
+let jedeVlak = document.querySelector(".vlak")
+jedeVlak.addEventListener("click", function(){
+    vlak();
+})
 
 ////////
 //funkce pro rozsvecení ledek
@@ -203,9 +244,11 @@ function semaforAutaZelena (cisloPinu, posunutiRozkazu) {
     client.send(message);
 }
 
+
 ////// funkce pro změnu světel
 // K zelene jsou tam narvaný parametry, jen nevím jestli to bude fungovat
 
+//zelená
 let stavSemaforuAutaKZ = 0;
 
 let funkceProSemaforKZ = [
@@ -234,6 +277,7 @@ SemaforKZ.addEventListener("click", function(){
     myTimeoutKZelene = setTimeout(ZmenaBarvySemaforuKZ, 4000);
 })
 
+//červená
 let stavSemaforuAutaKC = 0;
 
 let funkceProSemaforKC = [
