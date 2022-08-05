@@ -40,6 +40,8 @@ let zeleneSemafory = document.querySelectorAll(".zeleny-semafor")
 //     }
 // }
 
+// funkce pro zobrazeni Fáze cyklu na webu
+// parametr = fáze cyklu (1-5)
 function nastavFaziCykluNaWebu(cisloFazeCyklu) {
     let semafor1
     let semafor2
