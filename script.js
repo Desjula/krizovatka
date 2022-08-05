@@ -199,6 +199,11 @@ function vlak (){
     }, 10000)
 }
 
+//tlačítko jede vlak
+let jedeVlak = document.querySelector(".vlak")
+jedeVlak.addEventListener("click", function(){
+    vlak();
+})
 
 ////////
 //funkce pro rozsvecení ledek
