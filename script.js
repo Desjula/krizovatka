@@ -283,13 +283,13 @@ jedeVlak.addEventListener("click", function(){
 ////////
 //funkce pro rozsvecení ledek
 
-function semaforChodciZelena (cisloPinu) {
+function semaforChodciZelena (cisloPinu, posunutiRozkazu) {
     message = new Paho.MQTT.Message("W" +  + posunutiRozkazu);
     message.destinationName = "/crossing/semaphore/"+ cisloPinu;
     client.send(message);
 }
 
-function semaforChodciCervena (cisloPinu) {
+function semaforChodciCervena (cisloPinu, posunutiRozkazu) {
     message = new Paho.MQTT.Message("D" +  + posunutiRozkazu);
     message.destinationName = "/crossing/semaphore/"+ cisloPinu;
     client.send(message);
@@ -345,7 +345,7 @@ function ZmenaBarvySemaforuKZ(cisloPinu, posunutiRozkazu){ //proleze pole nad ti
     }
 }
 
-function SemaforKZ() {
+function SemaforKZ(cisloPinu, posunutiRozkazu) {
     ZmenaBarvySemaforuKZ(cisloPinu, posunutiRozkazu);
     myTimeoutKZelene = setTimeout(ZmenaBarvySemaforuKZ, 2000);
     myTimeoutKZelene = setTimeout(ZmenaBarvySemaforuKZ, 4000);
@@ -370,8 +370,8 @@ function ZmenaBarvySemaforuKC(cisloPinu, posunutiRozkazu){ //proleze pole nad ti
         stavSemaforuAutaKC = 0;
     }
 }
-function SemaforKC(){
-    ZmenaBarvySemaforuKC() ;
+function SemaforKC(cisloPinu, posunutiRozkazu){
+    ZmenaBarvySemaforuKC(cisloPinu, posunutiRozkazu) ;
     myTimeoutKCervene = setTimeout(ZmenaBarvySemaforuKC, 2000);
     myTimeoutKCervene = setTimeout(ZmenaBarvySemaforuKC, 4000);
 }
