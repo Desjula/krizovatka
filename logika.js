@@ -38,8 +38,8 @@ let semaforPrechodNahore2Z = function() { SemaforKZ('8', '00')}
 let semaforPrechodNahore2C = function() { SemaforKC('8', '00')}
 let semaforPrechodDole1Z = function() { SemaforKZ('13', '00')}
 let semaforPrechodDole1C = function() { SemaforKC('13', '00')}
-let semaforPrechodDole2C = function() { SemaforKC('13', '00')}
-let semaforPrechodDole2Z = function() { SemaforKZ('13', '00')}
+let semaforPrechodDole2C = function() { SemaforKC('2', '00')}
+let semaforPrechodDole2Z = function() { SemaforKZ('2', '00')}
 
 
 let start = document.querySelector('.start')
