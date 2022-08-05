@@ -106,8 +106,6 @@ function nastavKonecVlakuNaWebu() {
     semaforVlak2.style.opacity = 1
 }
 
-nastavFaziCykluNaWebu(3)
-
 /////
 ///vlak, závory a blikání
 
