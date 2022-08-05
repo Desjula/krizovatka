@@ -44,7 +44,7 @@ html { box-sizing: border-box; }
 /* pozicovani semaforu */
 img:not(.krizovatka-grafika, .logo) {
     position: absolute;
-    transition: 0.2s;
+    transition: 0.2s ease-out;
 }
 
 .semafor-img {
