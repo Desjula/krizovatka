@@ -124,7 +124,10 @@ body {
 }
 
 .ovladani-nadpis > h2{
+    border-bottom: 2px solid rgba(245, 245, 245, 0.493);
     margin-top: 8px;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
 }
 
 .krizovatka-grafika {
