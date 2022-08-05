@@ -201,71 +201,7 @@ function semaforAutaZelena () {
     client.send(message);
 }
 
-//připojení funkcí k tlačítkům
-
-let zelenaChodci = document.querySelector(".zelenaChodci");
-zelenaChodci.addEventListener("click", function(){
-    semaforChodciZelena();
-})
-
-let cervenaChodci = document.querySelector(".cervenaChodci");
-cervenaChodci.addEventListener("click", function(){
-    semaforChodciCervena();
-})
-
-let zelenaAuta = document.querySelector(".zelenaAuta");
-zelenaAuta.addEventListener("click", function(){
-    semaforAutaZelena();
-})
-
-let oranzovoCervenaAuta = document.querySelector(".oranzovoCervenaAuta");
-oranzovoCervenaAuta.addEventListener("click", function(){
-    semaforAutaOranzovoCervena();
-})
-
-let oranzovaAuta = document.querySelector(".oranzovaAuta");
-oranzovaAuta.addEventListener("click", function(){
-    semaforAutaOranzova();
-})
-
-let cervenaAuta = document.querySelector(".cervenaAuta");
-cervenaAuta.addEventListener("click", function(){
-    semaforAutaCervena();
-})
-
-
-// let cislaSvetelSemaforu = [
-//     semaforJednaSipka,
-//     semaforJednaG,
-//     semaforJednaO,
-//     semaforJednaR,
-//     semaforDvaRovneG,
-//     semaforDvaRovneO,
-//     semaforDvaRovneR,
-//     semaforDvaDolevaG,
-//     semaforDvaDolevaO,
-//     semaforDvaDolevaR,
-//     semaforTriSipka,
-//     semaforTriG,
-//     semaforTriO,
-//     semaforTriR,
-//     semaforCtyriRovneG,
-//     semaforCtyriRovneO,
-//     semaforCtyriRovneR,
-//     semaforCtyriDolevaG,
-//     semaforCtyriDolevaO,
-//     semaforCtyriDolevaR,
-//     prechodLevyNahoreG,
-//     prechodLevyDoleG,
-//     prechodLevyNahoreR,
-//     prechodLevyDoleR,
-//     prechodPravyNahoreG,
-//     prechodPravyDoleG,
-//     prechodPravyNahoreR,
-//     prechodPravyDoleR,
-//     zavoryLeva,
-//     zavoryPrava
-// ]
+////// funkce pro změnu světel
 
 let stavSemaforuAutaKZ = 0;
 
@@ -275,7 +211,7 @@ let funkceProSemaforKZ = [
     semaforAutaZelena
 ]
 
-function ZmenaBarvySemaforuKZ(){
+function ZmenaBarvySemaforuKZ(cisloSemaforu){
     funkceProSemaforKZ[stavSemaforuAutaKZ]();
 
     stavSemaforuAutaKZ++;
@@ -300,7 +236,7 @@ let funkceProSemaforKC = [
     semaforAutaCervena
 ]
 
-function ZmenaBarvySemaforuKC(){
+function ZmenaBarvySemaforuKC(cisloSemaforu){
     funkceProSemaforKC[stavSemaforuAutaKC]();
 
     stavSemaforuAutaKC++;
