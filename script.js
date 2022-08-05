@@ -53,26 +53,26 @@ function nastavFaziCykluNaWebu(cisloFazeCyklu) {
     else if (cisloFazeCyklu === 2) {
         semafor1 = 1
         semafor2 = 2
-        semafor3 = 8
+        semafor3 = 6
     }
     else if (cisloFazeCyklu === 3) {
         semafor1 = 3
-        semafor2 = 8
+        semafor2 = 6
         semafor3 = zeleneSemafory.length
     }
     else if (cisloFazeCyklu === 4) {
         semafor1 = 0
-        semafor2 = 9
+        semafor2 = 7
         semafor3 = zeleneSemafory.length
     }
     else if (cisloFazeCyklu === 5) {
         semafor1 = 4
         semafor2 = 5
-        semafor3 = 9
+        semafor3 = 7
     }
 
     for (let i = 0; i < zeleneSemafory.length; i++) {
-        if (i != semafor1 && i!= semafor2 && i != semafor3 && i != 6 && i != 7) {
+        if (i != semafor1 && i!= semafor2 && i != semafor3) {
             zeleneSemafory[i].style.display = "none"
         }
         else {
@@ -82,14 +82,17 @@ function nastavFaziCykluNaWebu(cisloFazeCyklu) {
 }
 
 function nastavVlakNaWebu() {
-    for (let i = 0; i < zeleneSemafory.length; i++) {
-        if (i != 10 && i != 11) {
-            zeleneSemafory[i].style.display = "none"
-        }
-        else {
-            zeleneSemafory[i].style.display = "block"
-        }
-    }
+    let semaforVlak1 = document.querySelector("#z7")
+    let semaforVlak2 = document.querySelector("#z8")
+    semaforVlak1.style.display = "none",
+    semaforVlak2.style.display = "none"
+}
+
+function nastavKonecVlakuNaWebu() {
+    let semaforVlak1 = document.querySelector("#z7")
+    let semaforVlak2 = document.querySelector("#z8")
+    semaforVlak1.style.display = "block",
+    semaforVlak2.style.display = "block"
 }
 
 nastavFaziCykluNaWebu(3)

@@ -46,10 +46,10 @@
             <img class="semafor-img zeleny-semafor" id="z6" src="grafika/semafor-auta-zelena.svg">
 
             <img class="semafor-img" id="r7" src="grafika/semafor-auta-cervena.svg">
-            <img class="semafor-img zeleny-semafor" id="z7" src="grafika/semafor-auta-zelena.svg">
+            <img class="semafor-img" id="z7" src="grafika/semafor-auta-zelena.svg">
 
             <img class="semafor-img" id="r8" src="grafika/semafor-auta-cervena.svg">
-            <img class="semafor-img zeleny-semafor" id="z8" src="grafika/semafor-auta-zelena.svg">
+            <img class="semafor-img" id="z8" src="grafika/semafor-auta-zelena.svg">
 
             <img class="semafor-img" id="r1-1" src="grafika/sipka-doprava-nahoru-seda.svg">
             <img class="semafor-img zeleny-semafor" id="z1-1" src="grafika/sipka-doprava-nahoru-zelena.svg">
@@ -84,11 +84,9 @@
             <button class="ovladani-button oranzovaAuta">Oranžová pro auta</button>
             <button class="ovladani-button zelenaAuta">Zelená pro auta</button>
             <h3>Přechody</h3>
-            <button onclick="nastavVlakNaWebu(1)" class="ovladani-button">Umožnit přechod silnice</button>
-            <button onclick="nastavFaziCykluNaWebu(1)" class="ovladani-button">Konec přechodu silnice</button>
             <h3>Závory</h3>
             <button id="jede-vlak" class="ovladani-button">Průjezd vlaku</button>
-            <button id="nejede-vlak" class="ovladani-button" onclick="nastavFaziCykluNaWebu(1)">Konec průjezdu vlaku</button>
+            <button id="nejede-vlak" class="ovladani-button" onclick="nastavKonecVlakuNaWebu()">Konec průjezdu vlaku</button>
             <button class="ovladani-button SemaforKZ">Semafor k zelené</button>
             <button class="ovladani-button SemaforKC">Semafor k červené</button>
         </div>
