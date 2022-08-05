@@ -46,10 +46,10 @@
             <img class="semafor-img zeleny-semafor" id="z6" src="grafika/semafor-auta-zelena.svg">
 
             <img class="semafor-img" id="r7" src="grafika/semafor-auta-cervena.svg">
-            <img class="semafor-img zeleny-semafor" id="z7" src="grafika/semafor-auta-zelena.svg">
+            <img class="semafor-img" id="z7" src="grafika/semafor-auta-zelena.svg">
 
             <img class="semafor-img" id="r8" src="grafika/semafor-auta-cervena.svg">
-            <img class="semafor-img zeleny-semafor" id="z8" src="grafika/semafor-auta-zelena.svg">
+            <img class="semafor-img" id="z8" src="grafika/semafor-auta-zelena.svg">
 
             <img class="semafor-img" id="r1-1" src="grafika/sipka-doprava-nahoru-seda.svg">
             <img class="semafor-img zeleny-semafor" id="z1-1" src="grafika/sipka-doprava-nahoru-zelena.svg">
@@ -67,10 +67,11 @@
 
         <div class="ovladani-nadpis">
             <h2>Ovládací panel</h2>
+            <button class="start">Start</button>
         </div>
 
         <div class="ovladani">
-            <h3>Silnice</h3>
+            <h3>Křižovatka</h3>
             <!-- <div class="svetlo"></div>
             <button class="ovladani-button KZelene">Zelená-první</button>
             <button class="ovladani-button KCervene">Červená-první</button> -->
@@ -84,7 +85,7 @@
             <button onclick="nastavFaziCykluNaWebu(1)" class="ovladani-button">Konec přechodu silnice</button>
             <h3>Závory</h3>
             <button id="jede-vlak" class="ovladani-button">Průjezd vlaku</button>
-            <button id="nejede-vlak" class="ovladani-button" onclick="nastavFaziCykluNaWebu(1)">Konec průjezdu vlaku</button>
+            <button id="nejede-vlak" class="ovladani-button" onclick="nastavKonecVlakuNaWebu()">Konec průjezdu vlaku</button>
             <button class="ovladani-button SemaforKZ">Semafor k zelené</button>
             <button class="ovladani-button SemaforKC">Semafor k červené</button>
         </div>
@@ -97,7 +98,7 @@
     <!-- <button class="ovladani-button" class="tlacitko"></button> -->
 
     <!-- přidat speciální tlačítko pro ruční přepnutí barev semaforu -->
-
+    <script src="logika.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
     <script src="script.js"></script>
 
