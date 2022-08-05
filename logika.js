@@ -53,22 +53,27 @@ function spustCyklus()  {
 
     if (pocitadlo == 0) {
         fazePrvni()
+        nastavFaziCykluNaWebu(1)
         pocitadlo ++
     }
     else if (pocitadlo == 1){
         fazeDruha()
+        nastavFaziCykluNaWebu(2)
         pocitadlo ++
     }
     else if (pocitadlo == 2) {
         fazeTreti()
+        nastavFaziCykluNaWebu(3)
         pocitadlo ++
     }
     else if (pocitadlo == 3) {
         fazeCtvrta()
+        nastavFaziCykluNaWebu(4)
         pocitadlo ++
     }
     else if (pocitadlo == 4) {
         fazePata()
+        nastavFaziCykluNaWebu(5)
         pocitadlo = 0
     }
 }
