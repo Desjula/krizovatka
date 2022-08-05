@@ -7,7 +7,7 @@ html { box-sizing: border-box; }
     display: grid;
     column-gap: 30px;
     grid-template-columns: 3fr 2fr;
-    grid-template-rows: auto 70px auto 100px;
+    grid-template-rows: auto 64px auto 100px;
     grid-template-areas: 
     "hlavicka prazdno"
     "krizovatka ovladani-nadpis"
@@ -130,6 +130,10 @@ body {
     padding-bottom: 8px;
 }
 
+h3 {
+    margin-top: 40px;
+}
+
 .krizovatka-grafika {
     width: 100%;
 }
@@ -146,7 +150,25 @@ body {
     font-weight: 500;
     padding: 4px;
     margin: 2px;
-    border: 1px solid rgb(41, 48, 77);
+    border: 1px solid rgb(0, 0, 0);
     border-radius: 3px;
 }
 
+.start-stop {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 12px;
+    border-radius: 12px;
+}
+
+.start {
+    color: whitesmoke;
+    border: 2px solid whitesmoke;
+    background-color: rgb(25, 40, 63);
+}
+
+.stop {
+    color: rgb(25, 40, 63);
+    border: 2px solid rgb(25, 40, 63);
+    background-color: whitesmoke;
+}
