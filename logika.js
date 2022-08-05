@@ -1,16 +1,18 @@
 //sem se vloží čísla pinů na kterých jsou semafory, možná rozkazy
-let semaforJednaSipka
+//posunuti rozkazu musi ybt string s dvema cislicemi!!!! napr "03"
+//asi bude lepsi to narvat rovnou do jednotlivych prikazu
+let semaforJednaSipka 
 let semaforJedna
-let semaforDvaDoleva
+let semaforDvaDoleva 
 let semaforDvaRovne
-let semaforTri
-let semaforTriSipka
-let semaforCtyriRovne
-let semaforCtyriDoleva
-let semafor
+let semaforTri 
+let semaforTriSipka 
+let semaforCtyriRovne 
+let semaforCtyriDoleva 
+let semafor 
 let prechodLevyDole
 let prechodPravyDole
-let prechodPravyNahore
+let prechodPravyNahore 
 let prechodLevyNahore
 
 let start = document.querySelector('.start')
