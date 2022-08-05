@@ -15,6 +15,6 @@ semaforAutaZelena == rozsvítí semafor pro auta zeleně
 
 DALŠÍ FUNKCE
 
-funkceProCyklusSemaforu == funkce, ve které jsou další funkce na rozsvěcení semaforu
+funkceProCyklusSemaforuKC == funkce, ve které jsou další funkce na rozsvěcení semaforu
 
-cyklusZmenyBarvySemaforu == funkce, která zajišťuje opakování barev v cyklu
+cyklusZmenyBarvySemaforuKC == funkce, která zajišťuje opakování barev v cyklu

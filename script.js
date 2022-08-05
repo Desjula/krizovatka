@@ -169,7 +169,7 @@ function semaforChodciCervena () {
     client.send(message);
 }
 
-function semaforAutaCervena () {
+function semaforAutaCervena (delkaCervene) {
     message = new Paho.MQTT.Message("R00");
     message.destinationName = "/crossing/semaphore/13";
     client.send(message);
@@ -259,46 +259,52 @@ cervenaAuta.addEventListener("click", function(){
 //     zavoryPrava
 // ]
 
-let stavSemaforuAuta = 0;
+let stavSemaforuAutaKZ = 0;
 
-let funkceProCyklusSemaforu = [
+let funkceProSemaforKZ = [
     semaforAutaCervena,
     semaforAutaOranzovoCervena,
+    semaforAutaZelena
+]
+
+function ZmenaBarvySemaforuKZ(){
+    funkceProSemaforKZ[stavSemaforuAutaKZ]();
+
+    stavSemaforuAutaKZ++;
+
+    if (stavSemaforuAutaKZ >= funkceProSemaforKZ.length){
+        stavSemaforuAutaKZ = 0;
+    }
+}
+
+let SemaforKZ = document.querySelector(".SemaforKZ");
+SemaforKZ.addEventListener("click", function(){
+    ZmenaBarvySemaforuKZ();
+    myTimeoutKZelene = setTimeout(ZmenaBarvySemaforuKZ, 2000);
+    myTimeoutKZelene = setTimeout(ZmenaBarvySemaforuKZ, 4000);
+})
+
+let stavSemaforuAutaKC = 0;
+
+let funkceProSemaforKC = [
     semaforAutaZelena,
     semaforAutaOranzova,
     semaforAutaCervena
 ]
 
-function cyklusZmenyBarvySemaforu(){
-    funkceProCyklusSemaforu[stavSemaforuAuta]();
+function ZmenaBarvySemaforuKC(){
+    funkceProSemaforKC[stavSemaforuAutaKC]();
 
-    stavSemaforuAuta++;
+    stavSemaforuAutaKC++;
 
-    if (stavSemaforuAuta >= funkceProCyklusSemaforu.length){
-        stavSemaforuAuta = 0;
+    if (stavSemaforuAutaKC >= funkceProSemaforKC.length){
+        stavSemaforuAutaKC = 0;
     }
 }
 
-let cyklusSemaforu = document.querySelector(".cyklusSemaforu");
-cyklusSemaforu.addEventListener("click", function(){
-    myInterval = setInterval(cyklusZmenyBarvySemaforu, 2000);
+let SemaforKC = document.querySelector(".SemaforKC");
+SemaforKC.addEventListener("click", function(){
+    ZmenaBarvySemaforuKC() ;
+    myTimeoutKCervene = setTimeout(ZmenaBarvySemaforuKC, 2000);
+    myTimeoutKCervene = setTimeout(ZmenaBarvySemaforuKC, 4000);
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
