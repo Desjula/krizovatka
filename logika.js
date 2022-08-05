@@ -33,19 +33,19 @@ let semaforTriRovne2Z = function() { SemaforKZ('6', '04')} // -tri rovne + (11,0
 let semaforCtyriDolevaZ = function() { SemaforKZ('12', '06')} // ctyri doleva
 let semaforCtyriDole1Z = function() { SemaforKZ('12', '04')} // ctyri rovne
 let semaforCtyriDole2Z = function() { SemaforKZ('12', '00')} // ctyri rovne
-let semaforPrechodNahore1Z = function() { SemaforKZ('7', '00')} //prechod
-let semaforPrechodNahore2Z = function() { SemaforKZ('8', '00')}
-let semaforPrechodNahore2C = function() { SemaforKC('8', '00')}
-let semaforPrechodDole1Z = function() { SemaforKZ('13', '00')}
-let semaforPrechodDole1C = function() { SemaforKC('13', '00')}
-let semaforPrechodDole2C = function() { SemaforKC('2', '00')}
-let semaforPrechodDole2Z = function() { SemaforKZ('2', '00')}
+// let semaforPrechodNahore1Z = function() { SemaforKZ('7', '00')} //prechod
+// let semaforPrechodNahore2Z = function() { SemaforKZ('8', '00')}
+// let semaforPrechodNahore2C = function() { SemaforKC('8', '00')}
+// let semaforPrechodDole1Z = function() { SemaforKZ('13', '00')}
+// let semaforPrechodDole1C = function() { SemaforKC('13', '00')}
+// let semaforPrechodDole2C = function() { SemaforKC('2', '00')}
+// let semaforPrechodDole2Z = function() { SemaforKZ('2', '00')}
 
 
 let start = document.querySelector('.start')
 start = addEventListener('click', function() {
     puvodniStav()
-    this.setInterval(spustCyklus(), 4000)
+    casovac = setInterval(spustCyklus, 4000)
 })
 
 let pocitadlo = 0
@@ -82,55 +82,56 @@ function puvodniStav() {
     SemaforKC('6', '00') // -tri rovne
     SemaforKZ('6', '04') // -tri rovne + (11,03)
     SemaforKZ('12', '06') // ctyri doleva
-    SemaforKZ('12', '03') // ctyri rovne
-    SemaforKZ('12', '00') // ctyri rovne
-    SemaforKZ('7', '00') //prechod
-    SemaforKZ('13', '00') //prechod
+    semaforChodciZelena('13', '00')
+    semaforChodciZelena('7', '00')
+    semaforChodciZelena('8', '00')
+    semaforChodciZelena('2', '00')
+    
 
 }
 function fazePrvni() { // Sviti prechody, 4 a 2 - obe rovne. Zhasnou 4 doleva, 3 sipka
-    semaforCtyriDolevaZ
-    semaforPrechodNahore1Z
-    semaforPrechodNahore2Z
-    semaforPrechodDole1Z
-    semaforPrechodDole2Z
-    semaforDvaRovne1Z
-    semaforDvaRovne2Z
+    SemaforKZ('12', '06')
+    semaforChodciZelena('13', '00')
+    semaforChodciZelena('7', '00')
+    semaforChodciZelena('8', '00')
+    semaforChodciZelena('2', '00')
+    SemaforKZ('3', '00')
+    SemaforKZ('3', '03')
 
 }
 function fazeDruha() { // Zhasnou prechody, 4 rovne. Rozsviti 2 doleva, 1 sipka
-    semaforPrechodNahore1C
-    semaforPrechodDole1C
-    semaforPrechodNahore2C
-    semaforPrechodDole2C
-    semaforCtyriDole2C
-    semaforCtyriDole1C
+    semaforChodciCervena('13', '00')
+    semaforChodciCervena('7', '00')
+    semaforChodciCervena('8', '00')
+    semaforChodciCervena('2', '00')
+    SemaforKC('12', '00')
+    SemaforKC('12', '03')
 
-    semaforDvaDolevaZ
+    SemaforKZ('3', '06')
    
 
 }
 function fazeTreti() { //Zhasne cela 2, rozsviti se cela 3
-    semaforDvaDolevaC
-    semaforDvaRovne1C
-    semaforDvaRovne2C
+    SemaforKC('3', '06')
+    SemaforKC('3', '00')
+    SemaforKC('3', '03')
 
-    semaforTriRovne1Z
-    semaforTriRovne2Z
+    SemaforKZ('6', '00')
+    SemaforKZ('6', '4')
 
 }
 function fazeCtvrta() { //Zhasne Tri rovne, rozsviti se 1 rovne
-    semaforTriRovne1C
-    semaforTriRovne2C
+    SemaforKC('6', '00')
+    SemaforKC('6', '4')
 
-    semaforJedna1Z
-    semaforJedna2Z
+    SemaforKZ('11', '00')
+    SemaforKZ('11', '04')
 }
 function fazePata() { //Zhasne cela 1, rozsviti se cela 4
-    semaforJedna1Z
-    semaforJedna2Z
+    SemaforKC('11', '00')
+    SemaforKC('11', '04')
 
-    semaforCtyriDole1Z
-    semaforCtyriDole2Z
-    semaforCtyriDolevaZ
+    SemaforKZ('12', '03')
+    SemaforKZ('12', '00')
+    SemaforKZ('12', '06')
 }

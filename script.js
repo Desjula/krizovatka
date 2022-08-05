@@ -284,25 +284,25 @@ jedeVlak.addEventListener("click", function(){
 //funkce pro rozsvecení ledek
 
 function semaforChodciZelena (cisloPinu, posunutiRozkazu) {
-    message = new Paho.MQTT.Message("W" +  + posunutiRozkazu);
+    message = new Paho.MQTT.Message("W" + posunutiRozkazu);
     message.destinationName = "/crossing/semaphore/"+ cisloPinu;
     client.send(message);
 }
 
 function semaforChodciCervena (cisloPinu, posunutiRozkazu) {
-    message = new Paho.MQTT.Message("D" +  + posunutiRozkazu);
+    message = new Paho.MQTT.Message("D"+ posunutiRozkazu);
     message.destinationName = "/crossing/semaphore/"+ cisloPinu;
     client.send(message);
 }
 
 function semaforAutaCervena (cisloPinu, posunutiRozkazu) {
-    message = new Paho.MQTT.Message("R" +  + posunutiRozkazu);
+    message = new Paho.MQTT.Message("R"+ posunutiRozkazu);
     message.destinationName = "/crossing/semaphore/"+ cisloPinu;
     client.send(message);
 }
 
 function semaforAutaOranzovoCervena (cisloPinu, posunutiRozkazu) {
-    message = new Paho.MQTT.Message("P" +  + posunutiRozkazu);
+    message = new Paho.MQTT.Message("P" + posunutiRozkazu);
     message.destinationName = "/crossing/semaphore/"+ cisloPinu;
     client.send(message);
 }
